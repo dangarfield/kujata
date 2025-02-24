@@ -78,7 +78,7 @@ field-op-codes
 
 field-op-codes detail
   /metadata/op-code-usages/98.json etc
-  
+
 field-models
   /metadata/ifalna.json - Don't need
   /metadata/ff7-database.json // Replaced with friendly names
@@ -148,8 +148,8 @@ const validateSystem = () => {
   if (process.platform !== 'win32') {
     program.error(
       chalk.red(
-        `⚠️   The`,
-        chalk.inverse(`kujata unlgp`),
+        '⚠️   The',
+        chalk.inverse('kujata media'),
         'function is only available on windows at the moment. Sorry'
       )
     )
@@ -180,8 +180,8 @@ const editConfig = async config => {
       fs.existsSync(path.resolve(f))
         ? true
         : chalk.red(
-            "⚠️   This doesn't look like a folder that exists, please create it first then try again"
-          )
+          "⚠️   This doesn't look like a folder that exists, please create it first then try again"
+        )
   })
 
   config.kujataDataDirectory = await input({
@@ -193,8 +193,8 @@ const editConfig = async config => {
       fs.existsSync(path.resolve(f))
         ? true
         : chalk.red(
-            "⚠️   This doesn't look like a folder that exists, please create it first then try again"
-          )
+          "⚠️   This doesn't look like a folder that exists, please create it first then try again"
+        )
   })
 
   fs.writeFileSync(configPath, JSON.stringify(config, null, 3))
@@ -316,7 +316,7 @@ const validateFieldsExport = config => {
     program.error(
       chalk.red(
         '⚠️   First, we need to extract the field data. Run',
-        chalk.inverse(`kujata flevel --all`),
+        chalk.inverse('kujata flevel --all'),
         'to ensure that it exists'
       )
     )
@@ -574,7 +574,6 @@ const unlgpCommand = program
     if (lgpFiles.length === 0 && !options.all) {
       unlgpCommand.help()
     }
-    validateSystem()
     const config = await validateConfig()
     await extractUnlgp(config, lgpFiles, options.all)
   })

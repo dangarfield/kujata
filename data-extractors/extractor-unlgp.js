@@ -1,18 +1,8 @@
 const chalk = require('chalk')
 const fs = require('fs')
 const path = require('path')
-const { spawnSync } = require('child_process')
-
 const cliProgress = require('cli-progress')
-const { sleep, KUJATA_ROOT } = require('../ff7-asset-loader/helper')
 
-const UNLGP_EXE_PATH = path.resolve(
-  KUJATA_ROOT,
-  'tools',
-  'lgp-0.5b',
-  'bin',
-  'unlgp.exe'
-)
 const findLGPs = rootDir => {
   const results = []
   function searchDirectory (directory) {
@@ -45,30 +35,83 @@ const deleteDirectorySync = dirPath => {
   }
 }
 
-const extractLgp = (lgpPath, outputRootPath) => {
-  const lgpName = path.basename(lgpPath)
-  const outputPath = path.resolve(outputRootPath, lgpName)
-  if (fs.existsSync(outputPath)) {
-    deleteDirectorySync(outputPath)
-  }
-  fs.mkdirSync(outputPath)
+const extractArchive = (archivePath, outputRootPath) => {
   let success = false
   try {
-    const command = `cd ${outputPath} && "${UNLGP_EXE_PATH}" "${lgpPath}"`
-    // console.log('\n\ncommand', command)
-    const result = spawnSync(command, { shell: true })
+    const lgpName = path.basename(archivePath)
+    const outputPath = path.resolve(outputRootPath, lgpName)
+    if (fs.existsSync(outputPath)) {
+      deleteDirectorySync(outputPath)
+    }
+    fs.mkdirSync(outputPath)
 
-    if (result.error) {
-      throw result.error
+    const readBinaryFile = (filename) => {
+      return fs.readFileSync(filename)
+    }
+    const buffer = readBinaryFile(archivePath)
+    let offset = 0
+    const readBytes = (size) => {
+      const data = buffer.slice(offset, offset + size)
+      offset += size
+      return data
+    }
+    const readUInt32 = () => {
+      const value = buffer.readUInt32LE(offset)
+      offset += 4
+      return value
+    }
+    const readUInt16 = () => {
+      const value = buffer.readUInt16LE(offset)
+      offset += 2
+      return value
+    }
+    const readUInt8 = () => {
+      const value = buffer.readUInt8(offset)
+      offset += 1
+      return value
+    }
+    const readString = (size) => {
+      return readBytes(size).toString('utf8').replace(/\0/g, '')
     }
 
-    if (result.status !== 0) {
-      //   console.error(`Process exited with code ${result.status}`)
-    } else {
-      success = true
+    // Skip header (12 bytes: creator signature)
+    const signature = readString(12) // eslint-disable-line no-unused-vars
+    // Read number of files
+    const numFiles = readUInt32()
+    // Read Table of Contents (TOC)
+    const toc = []
+    for (let i = 0; i < numFiles; i++) {
+      toc.push({
+        name: readString(20),
+        offset: readUInt32(),
+        attribute: readUInt8(), // File attribute or check code
+        conflictIndex: readUInt16() // Conflict ID (if duplicate filenames exist)
+      })
     }
+
+    // Find where the first file starts to calculate CRC section size
+    const firstFileOffset = Math.min(...toc.map(f => f.offset))
+    const crcSize = firstFileOffset - offset
+    offset += crcSize
+    // Extract files
+    fs.mkdirSync(outputPath, { recursive: true })
+
+    toc.forEach(file => {
+      // console.log(`Extracting ${file.name}...`);
+      offset = file.offset // Jump to file data
+      const extractedName = path.join(outputPath, file.name)
+      const fileHeaderName = readString(20) // eslint-disable-line no-unused-vars
+      const fileSize = readUInt32() // File length
+      const data = readBytes(fileSize)
+      // console.log(`Saving ${file.name} (${fileSize} bytes)`);
+      fs.mkdirSync(path.dirname(extractedName), { recursive: true })
+      fs.writeFileSync(extractedName, data)
+    })
+
+    // console.log("Extraction complete!");
+    success = true
   } catch (error) {
-    // console.error(`Error: ${error.message}`)
+    console.error('error', error)
   }
   return success
 }
@@ -109,9 +152,9 @@ const extractUnlgp = async (config, lgpFiles, all) => {
     const lgp = path.basename(lgpPath)
     progressBar.update(i, { current: lgp })
     // await sleep(100) // The update above can be slow to display
-    const result = extractLgp(lgpPath, config.unlgpDirectory)
+    const result = extractArchive(lgpPath, config.unlgpDirectory)
     if (!result) {
-      errors.push(chalk.red(`⚠️   Error unlgp-ing`, chalk.inverse(lgp)))
+      errors.push(chalk.red('⚠️   Error unlgp-ing', chalk.inverse(lgp)))
     }
     progressBar.increment()
   }
