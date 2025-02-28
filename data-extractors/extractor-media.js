@@ -9,8 +9,87 @@ const {
 } = require('../ff7-asset-loader/ff7-binary-data-reader.js')
 const chalk = require('chalk')
 const { KUJATA_ROOT } = require('../ff7-asset-loader/helper.js')
-const ffmpeg = require('ffmpeg-path').path
+const ffmpeg = require('@ffmpeg-installer/ffmpeg').path
 // console.log('ffmpeg', ffmpeg)
+
+const convertFmtToWav = async (fmtPath, datPath, outputDir) => {
+  const buffer = fs.readFileSync(fmtPath)
+  const dataBuffer = fs.readFileSync(datPath)
+  let dataOffset = 0
+  let id = 1
+  while (dataOffset < buffer.length) {
+    const dataLength = buffer.readUInt32LE(dataOffset)
+    const offset = buffer.readUInt32LE(dataOffset + 4)
+    if (dataLength === 0) {
+      dataOffset += 42
+      id++
+      continue
+    }
+
+    const loop = {
+      loop: buffer.readUInt32LE(dataOffset + 8),
+      count: buffer.readUInt32LE(dataOffset + 8 + 4),
+      start: buffer.readUInt32LE(dataOffset + 8 + 8),
+      end: buffer.readUInt32LE(dataOffset + 8 + 12)
+    }
+    const waveFormat = {
+      formatTag: buffer.readUInt16LE(dataOffset + 0x18),
+      numChannels: buffer.readUInt16LE(dataOffset + 0x18 + 2),
+      sampleRate: buffer.readUInt32LE(dataOffset + 0x18 + 4),
+      avgBytesPerSec: buffer.readUInt32LE(dataOffset + 0x18 + 8),
+      blockAlign: buffer.readUInt16LE(dataOffset + 0x18 + 12),
+      bitsPerSample: buffer.readUInt16LE(dataOffset + 0x18 + 14),
+      cbSize: buffer.readUInt16LE(dataOffset + 0x18 + 16)
+    }
+    const samplesPerBlock = buffer.readUInt16LE(dataOffset + 0x18 + 18)
+    const numCoef = buffer.readUInt16LE(dataOffset + 0x18 + 20)
+
+    dataOffset += 74
+
+    let extraData = Buffer.alloc(0)
+    if (waveFormat.cbSize > 0 && waveFormat.formatTag === 2) {
+      extraData = Buffer.from(buffer.subarray(dataOffset + 0x2e, dataOffset + 0x2e + (numCoef * 4)))
+    }
+    const soundData = Buffer.from(dataBuffer.subarray(offset, offset + dataLength))
+
+    let loopBuffer = Buffer.alloc(0)
+    if (loop.loop) {
+      loopBuffer = Buffer.alloc(16)
+      loopBuffer.write('fflp', 0)
+      loopBuffer.writeUInt32LE(8, 4)
+      loopBuffer.writeUInt32LE(loop.start, 8)
+      loopBuffer.writeUInt32LE(loop.end, 12)
+    }
+
+    const wav = Buffer.alloc(44 + soundData.length + 6 + extraData.length + loopBuffer.length)
+    wav.write('RIFF', 0) // 0         4       Chunk ID "RIFF"       RIFF
+    wav.writeUInt32LE(36 + soundData.length + 6 + extraData.length + loopBuffer.length, 4) // 4         4       Chunk Size            239982
+    wav.write('WAVE', 8) // 8         4       Format "WAVE"         WAVE
+    wav.write('fmt ', 12) // 12        4       Subchunk1 ID "fmt "   fmt
+    wav.writeUInt32LE(22 + (numCoef * 4), 16) // TODO - extra data??? // 16        4       Subchunk1 Size        16
+    wav.writeUInt16LE(waveFormat.formatTag, 20) // 20        2       Audio Format "1" PCM  1
+    wav.writeUInt16LE(waveFormat.numChannels, 22) // 22        2       Num Channels          1
+    wav.writeUInt32LE(waveFormat.sampleRate, 24) // 24        4       Sample Rate           44100
+    wav.writeUInt32LE(waveFormat.avgBytesPerSec, 28) // 28        4       Byte Rate             88200
+    wav.writeUInt16LE(waveFormat.blockAlign, 32) // 32        2       Block Align           2
+    wav.writeUInt16LE(waveFormat.bitsPerSample, 34) // 34        2       Bits Per Sample       16
+
+    wav.writeUInt16LE(waveFormat.cbSize, 36)
+    wav.writeUInt16LE(samplesPerBlock, 38)
+    wav.writeUInt16LE(numCoef, 40)
+    extraData.copy(wav, 42)
+    const wavDataOffset = 42 + (numCoef * 4) // 70
+
+    wav.write('data', wavDataOffset)
+    wav.writeUInt32LE(soundData.length, wavDataOffset + 4)
+    soundData.copy(wav, wavDataOffset + 8) // for 2.wav, start place in dat is 0x2ca8 = 11432
+
+    loopBuffer.copy(wav, wavDataOffset + 8 + soundData.length)
+
+    await fs.writeFile(path.join(outputDir, `${id}.wav`), wav)
+    id++
+  }
+}
 
 const extractSounds = async (
   progress,
@@ -22,12 +101,7 @@ const extractSounds = async (
   // D:\code\ff7\sfxedit_0.3\sfxdump.exe 'D:\Steam\steamapps\common\FINAL FANTASY VII\data\sound\audio.fmt' 'D:\Steam\steamapps\common\FINAL FANTASY VII\data\sound\audio.dat' D:\code\ff7\kujata-data-dg\data\media\sounds\
 
   // Check directories
-  const sfxDumpPath = path.join(
-    KUJATA_ROOT,
-    'tools',
-    'sfxedit-0.3',
-    'sfxdump.exe'
-  )
+
   const audioFmtPath = path.join(inputSoundsDirectory, 'audio.fmt')
   const audioDatPath = path.join(inputSoundsDirectory, 'audio.dat')
   const soundsOutputPath = path.join(outputSoundsDirectory)
@@ -36,9 +110,6 @@ const extractSounds = async (
     'sounds-metadata.json'
   )
 
-  if (!fs.existsSync(sfxDumpPath)) {
-    throw new Error('Unable to locate sfxdump.exe - ' + sfxDumpPath)
-  }
   if (!fs.existsSync(audioFmtPath)) {
     throw new Error('Unable to locate audio.fmt - ' + audioFmtPath)
   }
@@ -49,14 +120,9 @@ const extractSounds = async (
   // Ensure output folder exists and is empty
   await fs.emptyDir(soundsOutputPath)
 
-  // Extract wavs using sfxdump
-  const { stdout } = await execFile(sfxDumpPath, [
-    audioFmtPath,
-    audioDatPath,
-    soundsOutputPath
-  ])
-  // console.log(stdout)
-  let wavs = (await fs.readdir(soundsOutputPath)).filter(f =>
+  // console.log('sounds', audioFmtPath, audioDatPath, soundsOutputPath)
+  await convertFmtToWav(audioFmtPath, audioDatPath, soundsOutputPath)
+  const wavs = (await fs.readdir(soundsOutputPath)).filter(f =>
     f.includes('.wav')
   )
   // .slice(0, 10) // Temp
@@ -81,7 +147,7 @@ const extractSounds = async (
     fs.readSync(fd, buf, 0, bytesToRead, stats.size - bytesToRead)
     const fflp = buf.slice(0, 4)
     const fflpFlag = fflp.toString() === 'fflp'
-    const size = buf.readInt32LE(4)
+    const size = buf.readInt32LE(4) // eslint-disable-line no-unused-vars
     const start = buf.readUInt32LE(8) / 2
     const end = buf.readUInt32LE(12) / 2
     // console.log('buf', wav, buf, fflpFlag, fflp.toString(), size.toString(), start.toString(), end.toString())
@@ -99,7 +165,7 @@ const extractSounds = async (
     }
     soundStats.push(soundFile)
     // Convert sound
-    const { stdout, stderr } = await execFile(ffmpeg, [
+    const { stdout, stderr } = await execFile(ffmpeg, [ // eslint-disable-line no-unused-vars
       '-i',
       wavPath,
       '-acodec',
@@ -113,7 +179,7 @@ const extractSounds = async (
 
   // console.log('soundStats', soundStats)
   await fs.writeJson(soundsMetadataPath, soundStats, { spaces: '\t' })
-  // console.log('Extract Sounds - END')
+  console.log('Extract Sounds - END')
 }
 const extractMusic = async (
   progress,
@@ -141,11 +207,11 @@ const extractMusic = async (
 
   await fs.emptyDir(outputMusicDirectory)
 
-  let musicIdx = await fs.readFile(
+  const musicIdx = await fs.readFile(
     path.join(inputMusicDirectory, 'music.idx'),
     'utf-8'
   )
-  let musicList = musicIdx.split('\r\n').filter(m => m !== '')
+  const musicList = musicIdx.split('\r\n').filter(m => m !== '')
   // .slice(0, 10) // Temp
   // console.log('musicList', musicList)
   // musicList = musicList.filter(m => m === 'oa')
@@ -191,7 +257,7 @@ const extractMusic = async (
       await fs.copy(oggPath, targetPath)
     }
     if (fs.existsSync(wavPath)) {
-      const { stdout, stderr } = await execFile(ffmpeg, [
+      const { stdout, stderr } = await execFile(ffmpeg, [ // eslint-disable-line no-unused-vars
         '-i',
         wavPath,
         '-acodec',
@@ -220,7 +286,7 @@ const extractMovies = async (
       'Unable to locate inputMoviesDirectory - ' + inputMoviesDirectory
     )
   }
-  let avis = (await fs.readdir(inputMoviesDirectory)).filter(f =>
+  const avis = (await fs.readdir(inputMoviesDirectory)).filter(f =>
     f.includes('.avi')
   )
   // .slice(5, 6) // Temp
@@ -247,7 +313,7 @@ const extractMovies = async (
       avi.replace('.avi', '.mp4')
     )
     // console.log('Converting movie', i + 1, 'of', avis.length)
-    const { stdout, stderr } = await execFile(ffmpeg, [
+    const { stdout, stderr } = await execFile(ffmpeg, [ // eslint-disable-line no-unused-vars
       '-i',
       originPath,
       targetPath
@@ -366,14 +432,14 @@ const extractMoviecamData = async (
       'Unable to locate inputMoviecamDirectory - ' + inputMoviecamDirectory
     )
   }
-  let camFilesJsons = (await fs.readdir(outputMoviesDirectory)).filter(f =>
+  const camFilesJsons = (await fs.readdir(outputMoviesDirectory)).filter(f =>
     f.includes('.cam.json')
   )
   // console.log('camFilesJsons', camFilesJsons)
   camFilesJsons.map(f => fs.removeSync(path.join(outputMoviesDirectory, f)))
 
   const moviecamMetaData = []
-  let camFiles = (await fs.readdir(inputMoviecamDirectory)).filter(f =>
+  const camFiles = (await fs.readdir(inputMoviecamDirectory)).filter(f =>
     f.includes('.cam')
   )
 
@@ -430,7 +496,7 @@ const createCombinedMoviesList = async (progress, outputMoviesDirectory) => {
     path.join(KUJATA_ROOT, 'metadata', 'movie-list.json')
   )
   // console.log('allMovies', allMovies)
-  let nonFieldVideos = (await fs.readdir(outputMoviesDirectory))
+  const nonFieldVideos = (await fs.readdir(outputMoviesDirectory))
     .filter(f => f.includes('.mp4'))
     .map(f => f.replace('.mp4', ''))
     .filter(f => !allMovies.includes(f))

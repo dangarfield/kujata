@@ -144,17 +144,17 @@ const configDefault = {
   unlgpDirectory: '../unlgp',
   kujataDataDirectory: '../kujata-data'
 }
-const validateSystem = () => {
-  if (process.platform !== 'win32') {
-    program.error(
-      chalk.red(
-        '⚠️   The',
-        chalk.inverse('kujata media'),
-        'function is only available on windows at the moment. Sorry'
-      )
-    )
-  }
-}
+// const validateSystem = () => {
+//   if (process.platform !== 'win32') {
+//     program.error(
+//       chalk.red(
+//         '⚠️   The',
+//         chalk.inverse('kujata media'),
+//         'function is only available on windows at the moment. Sorry'
+//       )
+//     )
+//   }
+// }
 const getConfig = () => {
   return JSON.parse(fs.readFileSync(configPath))
 }
@@ -538,7 +538,7 @@ program
   )
   .action(async () => {
     const config = await validateConfig()
-    validateSystem()
+    // validateSystem()
     await validateUnlgp(config, 'moviecam.lgp')
     await extractMedias(config)
   })

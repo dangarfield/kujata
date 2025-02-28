@@ -23,11 +23,11 @@
 | `kujata config` | Set config. FF7 install path. Un-lgp storage. Kujata data output folder |
 | `kujata flevel --all -r` | Extract all field data. Includes backgrounds, palettes, walkmesh, field scripts etc |
 | `kujata flevel md1stin md1_1` | Extract one or more field |
-| `kujata field-models -all` | Extract field models to glTF. Includes models and textures |
+| `kujata field-models --all` | Extract field models to glTF. Includes models and textures |
 | `kujata field-models aaaa aagb` | Extract one or more models |
 | `kujata field-animations` | Extract field model animations to glTF. Includes all animations for all models |
 | `kujata metadata` | Extract general information. Includes field jumps, operations, chapter lists, friendly names etc |
-| `kujata battle-models -all` | Extract battle models to glTF. Includes models, textures, weapons, backgrounds and animations |
+| `kujata battle-models --all` | Extract battle models to glTF. Includes models, textures, weapons, backgrounds and animations |
 | `kujata battle-models rtaa ruaa` | Extract one or more models |
 | `kujata battle-data` | Extract battle data. Includes enemies, scene.bin, mark.dat, camera & action scripts, effect sprites |
 | `kujata world` | Extract world data. Very incomplete. Includes field transition positions only |

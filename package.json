@@ -17,12 +17,12 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@inquirer/prompts": "^6.0.1",
     "chalk": "^4.1.2",
     "cli-progress": "^3.12.0",
     "commander": "^12.1.0",
     "fast-glob": "^3.3.2",
-    "ffmpeg-path": "^5.5.5",
     "fs-extra": "^9.0.1",
     "inquirer": "^11.0.2",
     "jszip": "^3.10.1",
