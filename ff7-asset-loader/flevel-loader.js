@@ -348,7 +348,7 @@ module.exports = class FLevelLoader {
             }
             if (
               returnFound
-              //&& entityScript.ops[opIndex].byteIndex >= gotoIndex
+              // && entityScript.ops[opIndex].byteIndex >= gotoIndex
             ) {
               // if (i === LOG_I) { console.log('splitInit', 'initReturn', gotoIndex, opIndex, returnFound, gotoFound, entityScript.ops[opIndex].op, entityScript.ops[opIndex].byteIndex) }
               initReturn = true
@@ -978,7 +978,7 @@ module.exports = class FLevelLoader {
       )
       fs.ensureDirSync(bgFolder)
 
-      //`${config.metadataDirectory}/background-layers/`
+      // `${config.metadataDirectory}/background-layers/`
       // const thisBgFolder = `${bgFolder}/${baseFilename}`
       const thisBgFolder = path.join(bgFolder, baseFilename)
       fs.ensureDirSync(thisBgFolder)
@@ -1014,7 +1014,7 @@ module.exports = class FLevelLoader {
       'flevel.lgp',
       'textures'
     )
-    if (fs.existsSync(outputDir)) return
+    // if (fs.existsSync(outputDir)) return
 
     const flevelDir = path.join(config.unlgpDirectory, 'flevel.lgp')
 
@@ -1025,7 +1025,8 @@ module.exports = class FLevelLoader {
     )
     fs.ensureDirSync(outputDir)
     fs.ensureDirSync(outputDirMetaData)
-    //`${config.metadataDirectory}/field-assets`
+    fs.ensureDirSync(path.join(outputDirMetaData, 'field'))
+    // `${config.metadataDirectory}/field-assets`
 
     const texFiles = fs
       .readdirSync(flevelDir)
@@ -1035,25 +1036,28 @@ module.exports = class FLevelLoader {
     // console.log('ensureTexturesExist', config.inputFieldFLevelDirectory, config.outputFieldFLevelDirectory, texFiles, outputDir)
     for (let i = 0; i < texFiles.length; i++) {
       const texFile = texFiles[i]
-      const texPath = path.join(flevelDir, texFile) //`${config.inputFieldFLevelDirectory}/${texFile}`
-      const pngPath = path.join(outputDir, `${texFile}.png`) //`${outputDir}/${texFile}.png`
-      const pngPathMetadataParent = path.join(outputDirMetaData, 'field') //`${outputDirMetaData}/field`
+      const texPath = path.join(flevelDir, texFile) // `${config.inputFieldFLevelDirectory}/${texFile}`
+      const pngPath = path.join(outputDir, `${texFile}.png`) // `${outputDir}/${texFile}.png`
+      // const pngMetadataPath = path.join(outputDirMetaData, `${texFile}.png`) // `${outputDir}/${texFile}.png`
+      // const pngPathMetadataParent = path.join(outputDirMetaData, 'field') // `${outputDirMetaData}/field`
       const pngPathMetadata = path.join(
         outputDirMetaData,
         'field',
         `${texFile.replace('.tex', '')}.png`
       )
       // `${outputDirMetaData}/field/${texFile.replace('.tex','')}.png`
-      const metadataFile = path.join(outputDirMetaData, 'flevel.metadata.json') //`${outputDirMetaData}/flevel.metadata.json`
+      const metadataFile = path.join(outputDirMetaData, 'flevel.metadata.json') // `${outputDirMetaData}/flevel.metadata.json`
       const tex = new TexFile().loadTexFileFromPath(texPath)
       const w = tex.tex.header.width
       const h = tex.tex.header.height
       if (!fs.existsSync(pngPath)) {
         await tex.saveAsPng(pngPath)
       }
-
-      fs.ensureDirSync(pngPathMetadataParent)
-      fs.ensureDirSync(pngPathMetadata)
+      if (!fs.existsSync(pngPathMetadata)) {
+        await tex.saveAsPng(pngPathMetadata) // TODO: Duplicated ?! It's in the bundle for some reason, need to check
+      }
+      // fs.ensureDirSync(pngPathMetadataParent)
+      // fs.ensureDirSync(pngPathMetadata)
       fieldTextureMetadata.field.push({
         id: i,
         description: texFile.replace('.tex', ''),

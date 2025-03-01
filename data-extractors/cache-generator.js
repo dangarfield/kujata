@@ -25,10 +25,10 @@ const generateCachedBundle = async config => {
     { folder: '/metadata/field-assets', file: 'flevel.metadata.json' }
   ]
 
-  let allFilesToZip = []
+  const allFilesToZip = []
 
   // Loop through zipConfig
-  for (let config of zipConfig) {
+  for (const config of zipConfig) {
     const configFilePath = path.join(rootDir, config.folder, config.file)
 
     // Read the config file (flevel.metadata.json)
@@ -59,8 +59,9 @@ const generateCachedBundle = async config => {
   const zip = new JSZip()
 
   // Add each file to the ZIP
-  for (let file of allFilesToZip) {
+  for (const file of allFilesToZip) {
     const fileNameInZip = path.relative(rootDir, file) // Keep relative path inside the ZIP
+    console.log('fileNameInZip', fileNameInZip)
     const fileData = fs.readFileSync(file) // Read the file contents
     zip.file(fileNameInZip, fileData) // Add the file to the ZIP
   }

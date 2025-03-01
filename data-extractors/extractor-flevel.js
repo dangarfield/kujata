@@ -41,8 +41,7 @@ const decodeOneMap = (
 }
 const PROGRESS_FILE_NAME = 'test-flevel-loader-progress.json'
 const getCompletionProgress = () => {
-  if (!fs.existsSync(PROGRESS_FILE_NAME))
-    fs.writeJsonSync(PROGRESS_FILE_NAME, [])
+  if (!fs.existsSync(PROGRESS_FILE_NAME)) { fs.writeJsonSync(PROGRESS_FILE_NAME, []) }
   return fs.readJsonSync(PROGRESS_FILE_NAME)
 }
 const updateCompletionProgress = file => {
@@ -183,6 +182,9 @@ const extractFlevel = async (
   progressBar.start(fieldsToProcess.length, 0)
 
   const flevelLoader = new FLevelLoader(lzsDecompressor, mapList)
+
+  await flevelLoader.ensureTexturesExist(config)
+
   const success = []
   const errors = []
   for (const [i, fieldName] of fieldsToProcess.entries()) {
