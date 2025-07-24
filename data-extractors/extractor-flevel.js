@@ -191,27 +191,27 @@ const extractFlevel = async (
     // const lgp = path.basename(lgpPath)
     progressBar.update(i, { current: fieldName })
     await sleep(200) // The update above can be slow to display
-    // try {
-    const fieldBackgroundFolderExists = fs.existsSync(
-      path.join(
-        config.kujataDataDirectory,
-        'metadata',
-        'background-layers',
-        fieldName
+    try {
+      const fieldBackgroundFolderExists = fs.existsSync(
+        path.join(
+          config.kujataDataDirectory,
+          'metadata',
+          'background-layers',
+          fieldName
+        )
       )
-    )
-    // console.log('\n\n', resumeRender, fieldBackgroundFolderExists)
-    if (resumeRender && fieldBackgroundFolderExists) {
-      continue
+      // console.log('\n\n', resumeRender, fieldBackgroundFolderExists)
+      if (resumeRender && fieldBackgroundFolderExists) {
+        continue
+      }
+      const shallRender = renderBackgroundLayers || resumeRender
+      // console.log('shallRender', shallRender)
+      decodeOneMap(flevelLoader, config, fieldName, shallRender)
+      success.push(fieldName)
+    } catch (error) {
+      // console.error('\n\n', error)
+      errors.push(fieldName)
     }
-    const shallRender = renderBackgroundLayers || resumeRender
-    // console.log('shallRender', shallRender)
-    decodeOneMap(flevelLoader, config, fieldName, shallRender)
-    success.push(fieldName)
-    // } catch (error) {
-    //   // console.error('\n\n', error)
-    //   errors.push(fieldName)
-    // }
 
     progressBar.increment()
   }
