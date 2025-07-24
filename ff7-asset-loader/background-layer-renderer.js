@@ -232,6 +232,8 @@ const saveTileGroupImage = (
       texture = flevel.background.textures[`texture${tile.textureId2}`]
       useTexture2 = true
     }
+    if (texture === undefined) continue // Temp - I think to do with no palette images eg bugin1a
+
     const textureBytes = texture.data // Get all bytes for texture
 
     let tileSize = 16
