@@ -648,6 +648,11 @@ const renderBackgroundLayers = (flevel, folder, baseFilename) => {
 const savePalettes = (flevel, folder, baseFilename) => {
   // console.log('palette', flevel.palette)
 
+  // Handle no palette images
+  if (flevel.palette.pages.length === 0 || flevel.palette.header.colorsPerPage === 0) {
+    return flevel.palette.pages.length
+  }
+
   if (!fs.existsSync(folder + '/palettes')) {
     fs.mkdirSync(folder + '/palettes')
   }
