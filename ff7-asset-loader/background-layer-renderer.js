@@ -30,6 +30,7 @@ const getColorForPalette = bytes => {
     r: Math.round((bytes & 31) * COEFF_COLOR),
     g: Math.round(((bytes >> 5) & 31) * COEFF_COLOR),
     b: Math.round(((bytes >> 10) & 31) * COEFF_COLOR),
+    isZero: bytes === 0,
     m: ((bytes >> 15) & 1) === 1 ? 0 : 255
   }
   color.a = 255 // color.r === 0 && color.g === 0 && color.b === 0 ? 0 : 255
@@ -150,6 +151,31 @@ const getSizeMetaData = tiles => {
 //     }
 // }
 
+const computeShift = (tile, tileSize) => {
+  if (tileSize !== tile.height || tileSize !== tile.width) return
+
+  const layerKey = (tile.layerID === 0 || tile.layerID === 1) ? 1 : tile.layerID
+  const shift = shiftData[layerKey]
+
+  const computeAxis = (axis) => {
+    const dest = tile[`destination${axis}`]
+    if (shift[`${axis.toLowerCase()}Computed`] || dest === 0) return
+
+    let value = dest < 0 ? tileSize - (-dest % tileSize) : dest % tileSize
+    if (value === tileSize) value = 0
+
+    shift[axis.toLowerCase()] = value
+    shift[`${axis.toLowerCase()}Computed`] = true
+  }
+  computeAxis('X')
+  computeAxis('Y')
+}
+const shiftData = {
+  1: { x: 0, y: 0, xComputed: false, yComputed: false },
+  2: { x: 0, y: 0, xComputed: false, yComputed: false },
+  3: { x: 0, y: 0, xComputed: false, yComputed: false }
+}
+
 const saveTileGroupImage = (
   flevel,
   folder,
@@ -237,12 +263,13 @@ const saveTileGroupImage = (
     const textureBytes = texture.data // Get all bytes for texture
 
     let tileSize = 16
-    if (tile.layerID >= 2) {
+    if (tile.layerID >= 1) {
       // Layer 2 & 3 can have 32 pixel tiles
       if (tile.width !== 16 && tile.height !== 16) {
         tileSize = 32
       }
     }
+    computeShift(tile, tileSize)
 
     // const DEBUG_NAME = 'mds5_1-0-3-1-0-0.png'
     // if (name === DEBUG_NAME && tile.destinationX === sizeMeta.maxX && tile.destinationY === -48) {
@@ -463,10 +490,17 @@ const saveTileGroupImage = (
         data[byteOffset + 2] = data[byteOffset + 2] + 0x00 + paletteItem.b
         data[byteOffset + 3] = data[byteOffset + 3] + 0x00 + paletteItem.a
 
-        pixelData[byteOffset + 0] = textureByte
-        pixelData[byteOffset + 1] = 0x00
-        pixelData[byteOffset + 2] = 0x00
-        pixelData[byteOffset + 3] = 0xff
+        if (usePalette) {
+          pixelData[byteOffset + 0] = textureByte
+          pixelData[byteOffset + 1] = 0x00
+          pixelData[byteOffset + 2] = 0x00
+          pixelData[byteOffset + 3] = 0xff
+        } else {
+          pixelData[byteOffset + 0] = 0x00 + paletteItem.r
+          pixelData[byteOffset + 1] = 0x00 + paletteItem.g
+          pixelData[byteOffset + 2] = 0x00 + paletteItem.b
+          pixelData[byteOffset + 3] = 0x00 + paletteItem.a
+        }
 
         if (shallPrintDebug(posX, posY, setBlackBackground)) {
           console.log(
@@ -549,6 +583,7 @@ const arrangeLayers = tiles => {
         state: tile.state,
         typeTrans: tile.typeTrans,
         paletteId: tile.paletteId,
+        isDirect: tile.depth >= 2,
         tiles: [],
         tileCount: 0
       }
@@ -584,6 +619,32 @@ const renderBackgroundLayers = (flevel, folder, baseFilename) => {
   // Save all palettes
   const paletteData = savePalettes(flevel, folder, baseFilename)
 
+  // Get offsets
+  const tilesX = []
+  const tilesY = []
+  const threshold = 3500 // set a threshold value
+
+  for (let i = 0; i < tiles.length; i++) {
+    const tile = tiles[i]
+    if (Math.abs(tile.destinationX) < threshold) {
+      tilesX.push(tile.destinationX)
+    }
+    if (Math.abs(tile.destinationY) < threshold) {
+      tilesY.push(tile.destinationY)
+    }
+  }
+
+  const minX = Math.min(...tilesX)
+  let maxX = Math.max(...tilesX)
+  const minY = Math.min(...tilesY)
+  let maxY = Math.max(...tilesY)
+
+  maxX += 16
+  maxY += 16
+
+  const offsetX = -((minX + maxX) / 2)
+  const offsetY = -((minY + maxY) / 2)
+
   // Draw all bg layers
   saveTileGroupImage(
     flevel,
@@ -593,6 +654,10 @@ const renderBackgroundLayers = (flevel, folder, baseFilename) => {
     sizeMeta,
     true
   )
+
+  shiftData[1].xComputed = false; shiftData[1].yComputed = false
+  shiftData[2].xComputed = false; shiftData[2].yComputed = false
+  shiftData[3].xComputed = false; shiftData[3].yComputed = false
 
   // Draw each grouped tile layer
   for (let i = 0; i < arrangedLayers.length; i++) {
@@ -639,6 +704,13 @@ const renderBackgroundLayers = (flevel, folder, baseFilename) => {
 
   const jsonData = {
     paletteCount: paletteData,
+    layerShifts: [
+      { x: shiftData[1].x, y: shiftData[1].y },
+      { x: shiftData[2].x, y: shiftData[2].y },
+      { x: shiftData[3].x, y: shiftData[3].y }
+    ],
+    offsetX,
+    offsetY,
     layers: arrangedLayers
   }
   // Write layer metadata to json filea

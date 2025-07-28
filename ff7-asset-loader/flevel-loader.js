@@ -684,6 +684,7 @@ module.exports = class FLevelLoader {
     flevel.triggers.header.bgLayer3 = {}
     flevel.triggers.header.bgLayer4 = {}
     const off0x20 = [r.readByte(), r.readByte(), r.readByte(), r.readByte()]
+
     flevel.triggers.header.bgLayer3.animation = {
       width: r.readUShort(),
       height: r.readUShort()
@@ -693,10 +694,19 @@ module.exports = class FLevelLoader {
       height: r.readUShort()
     }
     const off0x32 = []
-    for (let i = 0; i < 24; i++) {
-      off0x32.push(r.readByte())
+    for (let i = 0; i < 12; i++) {
+      off0x32.push(r.readShort())
     }
-    // flevel.triggers.header.bgLayer34Unknown = {off0x20: off0x20, off0x32: off0x32}; // TODO: unknowns
+    // flevel.triggers.header.bgLayer34Unknown = { off0x20 } // TODO: unknowns
+
+    flevel.triggers.header.bgLayer3.animation.x = off0x32[0]
+    flevel.triggers.header.bgLayer3.animation.y = off0x32[1]
+    flevel.triggers.header.bgLayer4.animation.x = off0x32[2]
+    flevel.triggers.header.bgLayer4.animation.y = off0x32[3]
+    flevel.triggers.header.bgLayer3.animation.xMultiplier = off0x32[4]
+    flevel.triggers.header.bgLayer3.animation.yMultiplier = off0x32[5]
+    flevel.triggers.header.bgLayer4.animation.xMultiplier = off0x32[6]
+    flevel.triggers.header.bgLayer4.animation.yMultiplier = off0x32[7]
 
     flevel.triggers.gateways = []
     for (let i = 0; i < 12; i++) {
@@ -781,9 +791,15 @@ module.exports = class FLevelLoader {
     }
     for (let i = 0; i < flevel.palette.header.pageCount; i++) {
       const page = []
+      let firstColor
       for (let j = 0; j < flevel.palette.header.colorsPerPage; j++) {
         const bytes = r.readShort()
-        const color = backgroundLayerRenderer.getColorForPalette(bytes)
+        let color = backgroundLayerRenderer.getColorForPalette(bytes)
+        if (j === 0) {
+          firstColor = color
+        } else if (color.isZero) {
+          color = firstColor
+        }
         page.push(color)
       }
       flevel.palette.pages.push(page)
