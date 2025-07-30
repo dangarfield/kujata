@@ -1,7 +1,6 @@
 const stringUtil = require('./string-util.js')
 const sharp = require('sharp')
 const fs = require('fs')
-const { timeEnd } = require('console')
 
 /*
 A layer is split out for every unique combination of:
@@ -151,29 +150,40 @@ const getSizeMetaData = tiles => {
 //     }
 // }
 
-const computeShift = (tile, tileSize) => {
-  if (tileSize !== tile.height || tileSize !== tile.width) return
-
-  const layerKey = (tile.layerID === 0 || tile.layerID === 1) ? 1 : tile.layerID
-  const shift = shiftData[layerKey]
-
-  const computeAxis = (axis) => {
-    const dest = tile[`destination${axis}`]
-    if (shift[`${axis.toLowerCase()}Computed`] || dest === 0) return
-
-    let value = dest < 0 ? tileSize - (-dest % tileSize) : dest % tileSize
-    if (value === tileSize) value = 0
-
-    shift[axis.toLowerCase()] = value
-    shift[`${axis.toLowerCase()}Computed`] = true
+const computeShift = (tiles) => {
+  const shiftData = {
+    1: { x: 0, y: 0, xComputed: false, yComputed: false },
+    2: { x: 0, y: 0, xComputed: false, yComputed: false },
+    3: { x: 0, y: 0, xComputed: false, yComputed: false }
   }
-  computeAxis('X')
-  computeAxis('Y')
-}
-const shiftData = {
-  1: { x: 0, y: 0, xComputed: false, yComputed: false },
-  2: { x: 0, y: 0, xComputed: false, yComputed: false },
-  3: { x: 0, y: 0, xComputed: false, yComputed: false }
+  for (let i = 0; i < tiles.length; i++) {
+    const tile = tiles[i]
+    let tileSize = 16
+    if (tile.layerID >= 1) {
+      // Layer 2 & 3 can have 32 pixel tiles
+      if (tile.width !== 16 && tile.height !== 16) {
+        tileSize = 32
+      }
+    }
+    if (tileSize !== tile.height || tileSize !== tile.width) continue
+
+    const layerKey = (tile.layerID === 0 || tile.layerID === 1) ? 1 : tile.layerID
+    const shift = shiftData[layerKey]
+
+    const computeAxis = (axis) => {
+      const dest = tile[`destination${axis}`]
+      if (shift[`${axis.toLowerCase()}Computed`] || dest === 0) return
+
+      let value = dest < 0 ? tileSize - (-dest % tileSize) : dest % tileSize
+      if (value === tileSize) value = 0
+
+      shift[axis.toLowerCase()] = value
+      shift[`${axis.toLowerCase()}Computed`] = true
+    }
+    computeAxis('X')
+    computeAxis('Y')
+  }
+  return shiftData
 }
 
 const saveTileGroupImage = (
@@ -269,7 +279,6 @@ const saveTileGroupImage = (
         tileSize = 32
       }
     }
-    computeShift(tile, tileSize)
 
     // const DEBUG_NAME = 'mds5_1-0-3-1-0-0.png'
     // if (name === DEBUG_NAME && tile.destinationX === sizeMeta.maxX && tile.destinationY === -48) {
@@ -655,10 +664,6 @@ const renderBackgroundLayers = (flevel, folder, baseFilename) => {
     true
   )
 
-  shiftData[1].xComputed = false; shiftData[1].yComputed = false
-  shiftData[2].xComputed = false; shiftData[2].yComputed = false
-  shiftData[3].xComputed = false; shiftData[3].yComputed = false
-
   // Draw each grouped tile layer
   for (let i = 0; i < arrangedLayers.length; i++) {
     const arrangedLayer = arrangedLayers[i]
@@ -681,8 +686,7 @@ const renderBackgroundLayers = (flevel, folder, baseFilename) => {
       name,
       arrangedLayer.tiles,
       layerSizeMeta,
-      false,
-      arrangedLayer.layerID
+      false
     )
     arrangedLayer.fileName = name
     if (arrangedLayer.layerID === 2) {
@@ -702,6 +706,7 @@ const renderBackgroundLayers = (flevel, folder, baseFilename) => {
     delete arrangedLayer.tiles
   }
 
+  const shiftData = computeShift(tiles)
   const jsonData = {
     paletteCount: paletteData,
     layerShifts: [
