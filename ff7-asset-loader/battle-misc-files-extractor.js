@@ -154,7 +154,7 @@ const extractMiscBattleData = async (
 ) => {
   console.log('Extract Misc Battle Data: START')
   await extractMarkDat(inputBattleDataDirectory, outputBattleMiscDirectory)
-  // await extractCamDatData(inputBattleSceneDirectory, outputBattleMiscDirectory)
+  await extractCamDatData(inputBattleSceneDirectory, outputBattleMiscDirectory)
 
   console.log('Extract Misc Battle Data: END')
 }

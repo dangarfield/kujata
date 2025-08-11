@@ -472,7 +472,7 @@ program
   .command('world')
   .description(
     'Extract world data. ' +
-      chalk.cyan('Very incomplete. Includes field transition positions only')
+      chalk.cyan('Incomplete. Includes world map models and initial metadata and field transition positions')
   )
   .action(async () => {
     const config = await validateConfig()

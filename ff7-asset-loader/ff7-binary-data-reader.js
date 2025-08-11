@@ -26,36 +26,43 @@ class FF7BinaryDataReader {
     this.offset += 1
     return b
   }
+
   readUByte () {
     const b = this.buffer.readUInt8(this.offset)
     this.offset += 1
     return b
   }
+
   readShort () {
     const s = this.buffer.readInt16LE(this.offset)
     this.offset += 2
     return s
   }
+
   readUShort () {
     const s = this.buffer.readUInt16LE(this.offset)
     this.offset += 2
     return s
   }
+
   read24bitInteger () {
     const b = this.buffer.readUIntBE(this.offset, 3)
     this.offset += 3
     return b
   }
+
   readInt () {
     const i = this.buffer.readInt32LE(this.offset)
     this.offset += 4
     return i
   }
+
   readUInt () {
     const i = this.buffer.readUInt32LE(this.offset)
     this.offset += 4
     return i
   }
+
   readFloat () {
     const f = this.buffer.readFloatLE(this.offset)
     this.offset += 4
@@ -90,6 +97,14 @@ class FF7BinaryDataReader {
     const array = []
     for (let i = 0; i < length; i++) {
       array.push(this.readUShort())
+    }
+    return array
+  }
+
+  readIntArray (length) {
+    const array = []
+    for (let i = 0; i < length; i++) {
+      array.push(this.readInt())
     }
     return array
   }
@@ -792,6 +807,7 @@ class FF7BinaryDataReader {
     console.error('    unsupported opCode: 0x' + stringUtil.toHex2(op))
     throw new Error('unsupported opCode: 0x' + stringUtil.toHex2(op))
   }
+
   readBattleCameraFocusOp () {
     const $r = this
     const offset = this.offset
@@ -1163,6 +1179,7 @@ class FF7BinaryDataReader {
     console.error('unsupported opCode: 0x' + stringUtil.toHex2(op))
     throw new Error('unsupported opCode: 0x' + stringUtil.toHex2(op))
   }
+
   readBattleOp () {
     const $r = this
     const op = $r.readUByte()
@@ -2845,16 +2862,16 @@ class FF7BinaryDataReader {
         m === 0
           ? 'WindowMode.Normal'
           : m === 1
-          ? 'WindowMode.NoBackgroundNoBorder'
-          : m === 2
-          ? 'WindowMode.TransparentBackground'
-          : 'WindowMode.UNKNOWN_' + m
+            ? 'WindowMode.NoBackgroundNoBorder'
+            : m === 2
+              ? 'WindowMode.TransparentBackground'
+              : 'WindowMode.UNKNOWN_' + m
       const pDesc =
         p === 0
           ? 'Closability.Closable'
           : p === 1
-          ? 'Closability.NotClosable'
-          : 'Closability.UNKNOWN_' + p
+            ? 'Closability.NotClosable'
+            : 'Closability.UNKNOWN_' + p
       return {
         op: 'WMODE',
         w,
@@ -6297,7 +6314,7 @@ class FF7BinaryDataReader {
     }
 
     // 0x00 - 0x8d - animations
-    if (0x00 <= op && op <= 0x8d) {
+    if (op >= 0x00 && op <= 0x8d) {
       const raw = getRaw(offset, $r.offset)
       return {
         op: 'ANIM',
@@ -6335,7 +6352,7 @@ class FF7BinaryDataReader {
       return {
         op: 'CHARGEE',
         raw,
-        js: `enemySkillChargeEffect()`
+        js: 'enemySkillChargeEffect()'
       }
     }
     // 0xa5 - Summon charge effect (remains stationary on actor's position when called)
@@ -6344,7 +6361,7 @@ class FF7BinaryDataReader {
       return {
         op: 'CHARGES',
         raw,
-        js: `summonChargeEffect()`
+        js: 'summonChargeEffect()'
       }
     }
     // A9[][00] this increment script pointer by 2 and execute animation on second pointer.
@@ -6431,7 +6448,7 @@ class FF7BinaryDataReader {
       return {
         op: 'JUMP',
         raw,
-        js: `jumpToLabel()`
+        js: 'jumpToLabel()'
       }
     }
     // 0xc2 - execute_damage - C2[wait XX] after wait time ends show damage.
@@ -6451,7 +6468,7 @@ class FF7BinaryDataReader {
       return {
         op: 'FADEW',
         raw,
-        js: `setFadeWait()`
+        js: 'setFadeWait()'
       }
     }
     // 0xc6 - set_unit_fade_time - C6[wait XX] set value to 0x800f8374 (unit fade time) for futher use.
@@ -6471,7 +6488,7 @@ class FF7BinaryDataReader {
       return {
         op: 'LABEL',
         raw,
-        js: `setJumpLabel()`
+        js: 'setJumpLabel()'
       }
     }
     // 0xca - jump_if_not_loaded - CA jump to first meet C9 at start of this script if something loading in background.
@@ -6480,7 +6497,7 @@ class FF7BinaryDataReader {
       return {
         op: 'JUMPL',
         raw,
-        js: `jumpToLabelIfStillLoading()`
+        js: 'jumpToLabelIfStillLoading()'
       }
     }
     // 0xd0 - D0[4C04][01] jump to enemy
@@ -6532,7 +6549,7 @@ class FF7BinaryDataReader {
       return {
         op: 'CHARGEL',
         raw,
-        js: `limitChargeEffect()`
+        js: 'limitChargeEffect()'
       }
     }
     // 0xe3 - Move Z instantly - Assuming this is right (E3) - Eg, ensure backrow/normal is applied after anim is finished
@@ -6541,7 +6558,7 @@ class FF7BinaryDataReader {
       return {
         op: 'MOVIZ',
         raw,
-        js: `moveDefaultZPosInstantly()`
+        js: 'moveDefaultZPosInstantly()'
       }
     }
     // 0xe5 - return_direction - E5 set initial (idle) direction for current unit acording to situation.
@@ -6550,7 +6567,7 @@ class FF7BinaryDataReader {
       return {
         op: 'ROTI',
         raw,
-        js: `rotateBackToIdleDirection()`
+        js: 'rotateBackToIdleDirection()'
       }
     }
     // 0xe6 - Magic charge effect (remains stationary on actor's position when called)
@@ -6559,7 +6576,7 @@ class FF7BinaryDataReader {
       return {
         op: 'CHARGEM',
         raw,
-        js: `magicChargeEffect()`
+        js: 'magicChargeEffect()'
       }
     }
     // 0xe8 - load_additional_effect - E8 start load effect requested during attack (attack type id and attack id
@@ -6569,7 +6586,7 @@ class FF7BinaryDataReader {
       return {
         op: 'LOAD',
         raw,
-        js: `loadAdditionalEffect()`
+        js: 'loadAdditionalEffect()'
       }
     }
     // 0xea - show_action_name - EA show action name.
@@ -6578,7 +6595,7 @@ class FF7BinaryDataReader {
       return {
         op: 'NAME',
         raw,
-        js: `showActionName()`
+        js: 'showActionName()'
       }
     }
     // 0xeb - Assume that this is execute the effect from a item
@@ -6587,7 +6604,7 @@ class FF7BinaryDataReader {
       return {
         op: 'EXEITEM',
         raw,
-        js: `executeItem()`
+        js: 'executeItem()'
       }
     }
     // 0xec - execute_additional_effect - EC if effect not loaded we will call this opcode until it does.
@@ -6599,7 +6616,7 @@ class FF7BinaryDataReader {
       return {
         op: 'EXEEFF',
         raw,
-        js: `executeEffect()`
+        js: 'executeEffect()'
       }
     }
 
@@ -6609,7 +6626,7 @@ class FF7BinaryDataReader {
       return {
         op: 'ED',
         raw,
-        js: `unknownED()`
+        js: 'unknownED()'
       }
     }
     // 0xee - return_to_idle - EE reset to idle. Script pointer to 0.
@@ -6618,7 +6635,7 @@ class FF7BinaryDataReader {
       return {
         op: 'RET',
         raw,
-        js: `return()`
+        js: 'return()'
       }
     }
     // 0xf0 - set_effect - F0 set effect (foot_dust).
@@ -6627,7 +6644,7 @@ class FF7BinaryDataReader {
       return {
         op: 'DUST',
         raw,
-        js: `setDustEffect()`
+        js: 'setDustEffect()'
       }
     }
     // 0xf1 - ???
@@ -6636,7 +6653,7 @@ class FF7BinaryDataReader {
       return {
         op: 'F1',
         raw,
-        js: `unknownF1()`
+        js: 'unknownF1()'
       }
     }
     // 0xf3 - wait - F3 repeat reading this opcode until wait time for script not reach 0.
@@ -6646,7 +6663,7 @@ class FF7BinaryDataReader {
       return {
         op: 'WAIT',
         raw,
-        js: `wait()`
+        js: 'wait()'
       }
     }
     // 0xf4 - set_wait - F4[wait XX] set frames to wait.
@@ -6666,7 +6683,7 @@ class FF7BinaryDataReader {
       return {
         op: 'DIE',
         raw,
-        js: `playDieEffectIfDead()`
+        js: 'playDieEffectIfDead()'
       }
     }
     // 0xf7 - execute_attack - F7[wait XX] after wait time ends execute hurt action, effect, sound. This will display damage and barriers effect.
@@ -6686,7 +6703,7 @@ class FF7BinaryDataReader {
       return {
         op: 'MOVI',
         raw,
-        js: `returnToIdlePosition()`
+        js: 'returnToIdlePosition()'
       }
     }
     // 0xfc - set_direction - FC set direction for targets (delayed) and attacker acording to situation.
@@ -6695,7 +6712,7 @@ class FF7BinaryDataReader {
       return {
         op: 'ROTF',
         raw,
-        js: `setRotationToActors()`
+        js: 'setRotationToActors()'
       }
     }
     // 0xfe - ??? Guess a 3 bytes based on what it looks like it rtab
@@ -6710,7 +6727,7 @@ class FF7BinaryDataReader {
         arg2,
         arg3,
         raw,
-        js: `unknownFE()`
+        js: 'unknownFE()'
       }
     }
 
@@ -6731,6 +6748,7 @@ class FF7BinaryDataReader {
     // )
     // throw new Error('unsupported opCode: 0x' + stringUtil.toHex2(op))
   }
+
   printNextBufferDataAsHex (numRows = 30, numCols = 8) {
     console.log()
     const pad5 = stringUtil.pad5
