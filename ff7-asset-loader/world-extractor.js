@@ -44,6 +44,23 @@ const generateWorldMapTransitionData = async config => {
 }
 
 const generateWorldMaps = async config => {
+  // Generate walkmesh types metadata (only once for all world maps)
+  const mapData = require('../metadata-src/world-map/map-data.js')
+
+  // Create metadata directory if it doesn't exist
+  const metadataDir = path.join(config.kujataDataDirectory, 'metadata', 'world')
+  fs.ensureDirSync(metadataDir)
+
+  // Write walkmesh types file using data from map-data.js
+
+  const walkmeshTypes = {
+    triangleTypes: mapData.TRIANGLE_TYPES,
+    regionNames: mapData.REGION_NAMES
+  }
+
+  const walkmeshTypesPath = path.join(metadataDir, 'walkmesh-types.json')
+  fs.writeFileSync(walkmeshTypesPath, JSON.stringify(walkmeshTypes, null, 2))
+
   // Define world map configurations
   const worldMaps = [
     {
@@ -247,6 +264,9 @@ const processMesh = (buffer) => {
       vertices: [vertex0Index, vertex1Index, vertex2Index],
       walkmapStatus,
       unknown,
+      type: walkmapStatus, // Terrain type (walkability)
+      locationId: location, // Region ID
+      script: 0, // Script ID (not available in mesh data, defaults to 0)
       textureCoords: [
         { u: u0, v: v0 },
         { u: u1, v: v1 },
@@ -379,6 +399,12 @@ const combineMeshesForGltf = (meshes, worldMapName = 'wm0') => {
   const textureCoords = []
   const indices = []
   const materials = []
+
+  // Terrain metadata arrays (per-vertex)
+  const terrainTypes = [] // Triangle type (terrain walkability)
+  const regionIds = [] // Location ID (region)
+  const scriptIds = [] // Script ID
+
   let vertexOffset = 0
 
   // Define mesh size for positioning in 4x4 grid
@@ -454,6 +480,13 @@ const combineMeshesForGltf = (meshes, worldMapName = 'wm0') => {
 
       const triangleUVs = [uv0, uv1, uv2]
 
+      // Store terrain metadata for this triangle (per-vertex)
+      // Terrain types: 0=Grass, 1=Forest, 2=Mountain, 3=Sea, 4=River Crossing, 5=River, etc.
+      // See TRIANGLE_TYPES in map-data.js for complete list
+      const terrainType = triangle.type || 0
+      const regionId = triangle.locationId || 0
+      const scriptId = triangle.script || 0
+
       // Create unique vertices for this triangle
       const newVertexIndices = []
       for (let i = 0; i < 3; i++) {
@@ -492,6 +525,11 @@ const combineMeshesForGltf = (meshes, worldMapName = 'wm0') => {
         // Add texture coordinates for this vertex
         textureCoords.push(uv.u, uv.v)
 
+        // Add terrain metadata for this vertex (same for all 3 vertices of triangle)
+        terrainTypes.push(terrainType)
+        regionIds.push(regionId)
+        scriptIds.push(scriptId)
+
         // Store the new vertex index
         newVertexIndices.push(vertexOffset)
         vertexOffset++
@@ -516,6 +554,9 @@ const combineMeshesForGltf = (meshes, worldMapName = 'wm0') => {
     textureCoords,
     indices,
     materials,
+    terrainTypes,
+    regionIds,
+    scriptIds,
     vertexCount: vertices.length / 3,
     triangleCount: indices.length / 3
   }
@@ -557,7 +598,7 @@ const createGltfStructureWithTextures = (blockIndex, meshData) => {
 
   // Create primitives for each texture group
   const primitives = []
-  let accessorIndex = 3 // Start after POSITION(0), NORMAL(1), TEXCOORD_0(2)
+  let accessorIndex = 6 // Start after POSITION(0), NORMAL(1), TEXCOORD_0(2), _TERRAIN_TYPE(3), _REGION_ID(4), _SCRIPT_ID(5)
 
   uniqueTextures.forEach((textureId, materialIndex) => {
     const group = textureGroups[textureId]
@@ -566,13 +607,17 @@ const createGltfStructureWithTextures = (blockIndex, meshData) => {
         attributes: {
           POSITION: 0,
           NORMAL: 1,
-          TEXCOORD_0: 2
+          TEXCOORD_0: 2,
+          // Custom terrain attributes (using correct accessor indices)
+          _TERRAIN_TYPE: 3,
+          _REGION_ID: 4,
+          _SCRIPT_ID: 5
         },
         indices: accessorIndex,
         mode: PRIMITIVE_MODE.TRIANGLES,
         material: materialIndex
       })
-      accessorIndex++
+      accessorIndex++ // Increment by 1 for indices accessor
     }
   })
 
@@ -624,6 +669,30 @@ const createGltfStructureWithTextures = (blockIndex, meshData) => {
         componentType: COMPONENT_TYPE.FLOAT,
         count: meshData.vertexCount,
         type: 'VEC2'
+      },
+      // Accessor 3: Terrain types (custom attribute)
+      {
+        bufferView: 3,
+        byteOffset: 0,
+        componentType: COMPONENT_TYPE.FLOAT,
+        count: meshData.vertexCount,
+        type: 'SCALAR'
+      },
+      // Accessor 4: Region IDs (custom attribute)
+      {
+        bufferView: 4,
+        byteOffset: 0,
+        componentType: COMPONENT_TYPE.FLOAT,
+        count: meshData.vertexCount,
+        type: 'SCALAR'
+      },
+      // Accessor 5: Script IDs (custom attribute)
+      {
+        bufferView: 5,
+        byteOffset: 0,
+        componentType: COMPONENT_TYPE.FLOAT,
+        count: meshData.vertexCount,
+        type: 'SCALAR'
       }
       // Additional accessors for indices will be added dynamically
     ],
@@ -648,6 +717,27 @@ const createGltfStructureWithTextures = (blockIndex, meshData) => {
         byteOffset: meshData.vertices.length * 4 + meshData.normals.length * 4,
         byteLength: meshData.textureCoords.length * 4,
         target: ARRAY_BUFFER
+      },
+      // BufferView 3: Terrain types (4 bytes per vertex for alignment)
+      {
+        buffer: 0,
+        byteOffset: meshData.vertices.length * 4 + meshData.normals.length * 4 + meshData.textureCoords.length * 4,
+        byteLength: meshData.terrainTypes.length * 4, // Use 4 bytes for alignment
+        target: ARRAY_BUFFER
+      },
+      // BufferView 4: Region IDs (4 bytes per vertex for alignment)
+      {
+        buffer: 0,
+        byteOffset: meshData.vertices.length * 4 + meshData.normals.length * 4 + meshData.textureCoords.length * 4 + meshData.terrainTypes.length * 4,
+        byteLength: meshData.regionIds.length * 4, // Use 4 bytes for alignment
+        target: ARRAY_BUFFER
+      },
+      // BufferView 5: Script IDs (4 bytes per vertex for alignment)
+      {
+        buffer: 0,
+        byteOffset: meshData.vertices.length * 4 + meshData.normals.length * 4 + meshData.textureCoords.length * 4 + meshData.terrainTypes.length * 4 + meshData.regionIds.length * 4,
+        byteLength: meshData.scriptIds.length * 4, // Use 4 bytes for alignment
+        target: ARRAY_BUFFER
       }
       // Additional buffer views for indices will be added dynamically
     ],
@@ -662,6 +752,11 @@ const createGltfBinaryDataWithTextures = (meshData, gltf) => {
   const normalBuffer = Buffer.alloc(meshData.normals.length * 4)
   const texCoordBuffer = Buffer.alloc(meshData.textureCoords.length * 4)
 
+  // Create buffers for terrain metadata (using floats for alignment)
+  const terrainTypeBuffer = Buffer.alloc(meshData.terrainTypes.length * 4)
+  const regionIdBuffer = Buffer.alloc(meshData.regionIds.length * 4)
+  const scriptIdBuffer = Buffer.alloc(meshData.scriptIds.length * 4)
+
   // Write vertex data
   for (let i = 0; i < meshData.vertices.length; i++) {
     vertexBuffer.writeFloatLE(meshData.vertices[i], i * 4)
@@ -675,6 +770,19 @@ const createGltfBinaryDataWithTextures = (meshData, gltf) => {
   // Write texture coordinate data
   for (let i = 0; i < meshData.textureCoords.length; i++) {
     texCoordBuffer.writeFloatLE(meshData.textureCoords[i], i * 4)
+  }
+
+  // Write terrain metadata as floats
+  for (let i = 0; i < meshData.terrainTypes.length; i++) {
+    terrainTypeBuffer.writeFloatLE(meshData.terrainTypes[i], i * 4)
+  }
+
+  for (let i = 0; i < meshData.regionIds.length; i++) {
+    regionIdBuffer.writeFloatLE(meshData.regionIds[i], i * 4)
+  }
+
+  for (let i = 0; i < meshData.scriptIds.length; i++) {
+    scriptIdBuffer.writeFloatLE(meshData.scriptIds[i], i * 4)
   }
 
   // Create separate index buffers for each texture group
@@ -695,12 +803,23 @@ const createGltfBinaryDataWithTextures = (meshData, gltf) => {
   })
 
   // Combine all buffers
-  const combinedBuffer = Buffer.concat([vertexBuffer, normalBuffer, texCoordBuffer, ...indexBuffers])
+  const combinedBuffer = Buffer.concat([
+    vertexBuffer,
+    normalBuffer,
+    texCoordBuffer,
+    terrainTypeBuffer,
+    regionIdBuffer,
+    scriptIdBuffer,
+    ...indexBuffers
+  ])
 
   return {
     vertexBuffer,
     normalBuffer,
     texCoordBuffer,
+    terrainTypeBuffer,
+    regionIdBuffer,
+    scriptIdBuffer,
     indexBuffers,
     combinedBuffer,
     textureGroups,
@@ -833,7 +952,7 @@ const updateGltfBufferReferences = (gltf, binaryData, binFilename) => {
   const textureGroups = binaryData.textureGroups
   // Use the same order as was used in index buffer creation
   const uniqueTextures = binaryData.uniqueTextures
-  let currentByteOffset = binaryData.vertexBuffer.length + binaryData.normalBuffer.length + binaryData.texCoordBuffer.length
+  let currentByteOffset = binaryData.vertexBuffer.length + binaryData.normalBuffer.length + binaryData.texCoordBuffer.length + binaryData.terrainTypeBuffer.length + binaryData.regionIdBuffer.length + binaryData.scriptIdBuffer.length
 
   uniqueTextures.forEach((textureId, index) => {
     const group = textureGroups[textureId]
@@ -1081,6 +1200,5 @@ const extractWorldMapTextures = async (config) => {
 
 module.exports = {
   generateWorldMapTransitionData,
-  generateWorldMaps,
-  getTextureIdToNameMapping
+  generateWorldMaps
 }
