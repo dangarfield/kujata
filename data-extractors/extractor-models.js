@@ -104,7 +104,7 @@ const extractModels = async (config, models, all, modelType) => {
         config,
         modelName,
         null,
-        null, // TODO Setting this here bakes the animations into the glTF, don't do it for fields. battles? not sure, need to look
+        modelType === ModelType.WORLD ? [] : null, // For world models, use empty array to load all animations
         true,
         modelType
       )
@@ -113,7 +113,7 @@ const extractModels = async (config, models, all, modelType) => {
       // if (i % 2 === 0) throw new Exception()
       success.push(modelName)
     } catch (error) {
-      // console.error('\n\n', error)
+      console.error('\n\n', error)
       errors.push(modelName)
     }
     progressBar.increment()
@@ -129,7 +129,7 @@ const extractModels = async (config, models, all, modelType) => {
             l =>
               `${chalk.underline(path.basename(l))} (${getName(
                 l,
-                isBattleModel
+                modelType
               )})`
           )
           .join(', ')

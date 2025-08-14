@@ -29,6 +29,8 @@
 | `kujata metadata` | Extract general information. Includes field jumps, operations, chapter lists, friendly names etc |
 | `kujata battle-models --all` | Extract battle models to glTF. Includes models, textures, weapons, backgrounds and animations |
 | `kujata battle-models rtaa ruaa` | Extract one or more models |
+| `kujata world-models --all` | Extract world models to glTF. Includes models and textures |
+| `kujata world-models wm0 wm1` | Extract one or more world models |
 | `kujata battle-data` | Extract battle data. Includes enemies, scene.bin, mark.dat, camera & action scripts, effect sprites |
 | `kujata world` | Incomplete. Includes world map models and initial metadata and field transition positions |
 | `kujata exe` | Extract exe data. Includes shops, initial data, limit data |

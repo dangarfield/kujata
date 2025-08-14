@@ -1,0 +1,986 @@
+	WORLD_US.LGP									
+aaa.hrc	80	North crater barrier		Field skeleton		View Picture			
+aab.rsd	75	North crater barrier: Whole model		rsd model		View Picture			
+aac.p	4596	North crater barrier: Whole model		p model		View Picture			
+aad.tex	812	North crater barrier whole texture		Texture		View Picture			
+aae.a	756	North crater barrier static animation		Animation					
+aba.hrc	762	Buggy		Field Skeleton		View Picture			
+abb.rsd	59	Buggy: Back engine casing		rsd model		View Picture			
+abc.p	2520	Buggy: Back engine casing		p model		View Picture			
+abd.rsd	59	Buggy: Main body		rsd model		View Picture			
+abe.p	10548	Buggy: Main body		p model		View Picture			
+aca.rsd	59	Buggy: Back engine propeller		rsd model		View Picture			
+acb.p	740	Buggy: Back engine propeller		p model		View Picture			
+acc.rsd	59	Buggy: Wheel 1		rsd model		View Picture			
+acd.p	792	Buggy: Wheel 1		p model		View Picture			
+ace.rsd	59	Buggy: Wheel 2		rsd model		View Picture			
+ada.p	792	Buggy: Wheel 2		p model		View Picture			
+adb.rsd	59	Buggy: Wheel 3		rsd model		View Picture			
+adc.p	792	Buggy: Wheel 3		p model		View Picture			
+add.rsd	59	Buggy: Wheel 4		rsd model		View Picture			
+ade.p	792	Buggy: Wheel 4		p model		View Picture			
+aea.rsd	59	Buggy: Water engines		rsd model		View Picture			
+aeb.p	2852	Buggy: Water engines		p model		View Picture			
+aec.rsd	59	Buggy: Water engines propeller 1		rsd model		View Picture			
+aed.p	740	Buggy: Water engines propeller 1		p model		View Picture			
+aee.rsd	59	Buggy: Water engines propeller 1		rsd model		View Picture			
+afa.p	740	Buggy: Water engines propeller 1		p model		View Picture			
+afb.rsd	59	Buggy: Wheel 5		rsd model		View Picture			
+afc.p	792	Buggy: Wheel 5		p model		View Picture			
+afd.rsd	59	Buggy: Wheel 6		rsd model		View Picture			
+afe.p	792	Buggy: Wheel 6		p model		View Picture			
+aga.rsd	59	Buggy: Wheel 7		rsd model		View Picture			
+agb.p	792	Buggy: Wheel 7		p model		View Picture			
+agc.rsd	59	Buggy: Wheel 8		rsd model		View Picture			
+agd.p	792	Buggy: Wheel 8		p model		View Picture			
+age.a	1008	Buggy: Standby		Animation					
+aha.a	9756	Buggy: Moving		Animation					
+ahb.a	1980	Buggy: Lowering water engines		Animation					
+ahc.a	1008	Buggy: Moving on water		Animation					
+ahd.a	1980	Buggy: Raising water engines		Animation					
+ahe.a	6516	Buggy: Moving in place		Animation					
+aia.hrc	79	Junon Canon		Field Skeleton		View Picture			
+aib.rsd	75	Junon Cannon: whole model		rsd model		View Picture			
+aic.p	5368	Junon Cannon: whole model		p model		View Picture			
+aid.tex	1324	Junon Cannon whole texture		Texture		View Picture			
+aie.a	756	Junon Cannon: Static animation		Animation					
+aja.hrc	1009	Uncolored Chocobo		Field Skeleton		View Picture			
+ajb.rsd	124	Chocobo: Body		rsd model		View Picture			
+ajc.p	1580	Chocobo: Body		p model		View Picture			
+ajd.rsd	124	Chocobo: Right Wing		rsd model		View Picture			
+aje.p	1404	Chocobo: Right Wing		p model		View Picture			
+aka.rsd	124	Chocobo: Neck		rsd model		View Picture			
+akb.p	1228	Chocobo: Neck		p model		View Picture			
+akc.rsd	124	Chocobo: Face		rsd model		View Picture			
+akd.p	4020	Chocobo: Face		p model		View Picture			
+ake.rsd	124	Chocobo: Head feathers		rsd model		View Picture			
+ala.p	832	Chocobo: Head feathers		p model		View Picture			
+alb.rsd	124	Chocobo: Left wing		rsd model		View Picture			
+alc.p	1404	Chocobo: Left wing		p model		View Picture			
+ald.rsd	124	Chocobo: Tail		rsd model		View Picture			
+ale.p	1448	Chocobo: Tail		p model		View Picture			
+ama.rsd	124	Chocobo: Right Leg (still with 'feathers')		rsd model		View Picture			
+amb.p	876	Chocobo: Right Leg (still with 'feathers')		p model		View Picture			
+amc.rsd	124	Chocobo: Right Upper Leg		rsd model		View Picture			
+amd.p	672	Chocobo: Right Upper Leg		p model		View Picture			
+ame.rsd	124	Chocobo: Right Lower leg		rsd model		View Picture			
+ana.p	700	Chocobo: Right Lower leg		p model		View Picture			
+anb.rsd	124	Chocobo: Right foot Back claw		rsd model		View Picture			
+anc.p	820	Chocobo: Right foot Back claw		p model		View Picture			
+and.rsd	124	Chocobo: Right foot front finger 1		rsd model		View Picture			
+ane.p	644	Chocobo: Right foot front finger 1		p model		View Picture			
+aoa.rsd	124	Chocobo: Right foot front finger 1 claw		rsd model		View Picture			
+aob.p	760	Chocobo: Right foot front finger 1 claw		p model		View Picture			
+aoc.rsd	124	Chocobo: Right foot front finger 2		rsd model		View Picture			
+aod.p	644	Chocobo: Right foot front finger 2		p model		View Picture			
+aoe.rsd	124	Chocobo: Right foot front finger 2 claw		rsd model		View Picture			
+apa.p	760	Chocobo: Right foot front finger 2 claw		p model		View Picture			
+apb.rsd	124	Chocobo: Left Leg (still with 'feathers')		rsd model		View Picture			
+apc.p	876	Chocobo: Left Leg (still with 'feathers')		rsd model		View Picture			
+apd.rsd	124	Chocobo: Left Upper Leg		p model		View Picture			
+ape.p	672	Chocobo: Left Upper Leg		rsd model		View Picture			
+aqa.rsd	124	Chocobo: Left Lower leg		p model		View Picture			
+aqb.p	700	Chocobo: Left Lower leg		rsd model		View Picture			
+aqc.rsd	124	Chocobo: Left foot Back claw		p model		View Picture			
+aqd.p	820	Chocobo: Left foot Back claw		rsd model		View Picture			
+aqe.rsd	124	Chocobo: Left foot front finger 1		p model		View Picture			
+ara.p	644	Chocobo: Left foot front finger 1		rsd model		View Picture			
+arb.rsd	124	Chocobo: Left foot front finger 1 claw		p model		View Picture			
+arc.p	760	Chocobo: Left foot front finger 1 claw		rsd model		View Picture			
+ard.rsd	124	Chocobo: Left foot front finger 2		p model		View Picture			
+are.p	644	Chocobo: Left foot front finger 2		rsd model		View Picture			
+asa.rsd	124	Chocobo: Left foot front finger 2 claw		p model		View Picture			
+asb.p	760	Chocobo: Left foot front finger 2 claw		rsd model		View Picture			
+asc.a	7236	Chocobo: Standing		Animation					
+asd.a	8676	Chocobo: Running		Animation					
+ase.a	5436	Chocobo: Moving head upwards		Animation					
+ata.hrc	764	Cid		Field Skeleton		View Picture			
+atb.rsd	59	Cid: Lower Chest		rsd Model		View Picture			
+atc.p	1740	Cid: Lower Chest		p Model		View Picture			
+atd.rsd	59	Cid: Upper Chest		rsd Model		View Picture			
+ate.p	6936	Cid: Upper Chest		p Model		View Picture			
+atn.tbl	1024								
+aua.rsd	107	Cid: Head		rsd Model		View Picture			
+aub.p	14612	Cid: Head		p Model		View Picture			
+auc.tex	1324	Cid: Eye		Texture		View Picture			
+aud.tex	1324	Cid: Eye		Texture		View Picture			
+aue.tex	1324	Cid: Mouth		Texture		View Picture			
+ava.rsd	59	Cid: Upper Arm		rsd Model		View Picture			
+avb.p	2112	Cid: Upper Arm		p Model		View Picture			
+avc.rsd	59	Cid: Lower Arm		rsd Model		View Picture			
+avd.p	2148	Cid: Lower Arm		p Model		View Picture			
+ave.rsd	59	Cid: Hand		rsd Model		View Picture			
+awa.p	1216	Cid: Hand		p Model		View Picture			
+awb.rsd	59	Cid: Upper Arm		rsd Model		View Picture			
+awc.p	2112	Cid: Upper Arm		p Model		View Picture			
+awd.rsd	59	Cid: Lower Arm		rsd Model		View Picture			
+awe.p	2148	Cid: Lower Arm		p Model		View Picture			
+axa.rsd	59	Cid: Hand		rsd Model		View Picture			
+axb.p	1216	Cid: Hand		p Model		View Picture			
+axc.rsd	59	Cid: Upper Leg		rsd Model		View Picture			
+axd.p	1176	Cid: Upper Leg		p Model		View Picture			
+axe.rsd	59	Cid: Lower Leg		rsd Model		View Picture			
+aya.p	2212	Cid: Lower Leg		p Model		View Picture			
+ayb.rsd	59	Cid: Foot		rsd Model		View Picture			
+ayc.p	1672	Cid: Foot		p Model		View Picture			
+ayd.rsd	59	Cid: Upper Leg		rsd Model		View Picture			
+aye.p	1176	Cid: Upper Leg		p Model		View Picture			
+aza.rsd	59	Cid: Lower Leg		rsd Model		View Picture			
+azb.p	2212	Cid: Lower Leg		p Model		View Picture			
+azc.rsd	59	Cid: Foot		rsd Model		View Picture			
+azd.p	1672	Cid: Foot		p Model		View Picture			
+aze.a	312	Cid: Standing		Animation					
+baa.a	4176	Cid: Running		Animation					
+bab.a	5556	Cid: On Chocobo		Animation					
+bac.a	6660	Cid: Running on chocobo		Animation					
+bad.a	5280	Cid: Mount chocobo		Animation					
+bae.a	5280	Cid: Dismount chocobo		Animation					
+bba.a	8316	Cid: Scared		Animation					
+bbb.a	16596	Cid: Thinking		Animation					
+bbc.a	5556	Cid: Checking something on the floor		Animation					
+bbd.a	2244	Cid: Pushing a button		Animation					
+bbe.hrc	771	Cloud		Field Skeleton		View Picture			
+bca.rsd	59	Cloud: Lower Chest		rsd Model		View Picture			
+bcb.p	1404	Cloud: Lower Chest		p Model		View Picture			
+bcc.rsd	59	Cloud: Upper Chest		rsd Model		View Picture			
+bcd.p	3568	Cloud: Upper Chest		p Model		View Picture			
+bce.rsd	172	Cloud: Head		rsd Model		View Picture			
+bda.p	9588	Cloud: Head		p Model		View Picture			
+bdb.tex	1324	Cloud: Eye		Texture		View Picture			
+bdc.tex	1324	Cloud: Eye		Texture		View Picture			
+bdd.tex	1324	Cloud: Mouth		Texture		View Picture			
+bde.rsd	59	Cloud: Upper Arm		rsd Model		View Picture			
+bea.p	1700	Cloud: Upper Arm		p Model		View Picture			
+beb.rsd	59	Cloud: Lower Arm		rsd Model		View Picture			
+bec.p	1660	Cloud: Lower Arm		p Model		View Picture			
+bed.rsd	59	Cloud: Hand		rsd Model		View Picture			
+bee.p	876	Cloud: Hand		p Model		View Picture			
+bfa.rsd	59	Cloud: Upper Arm		rsd Model		View Picture			
+bfb.p	1580	Cloud: Upper Arm		p Model		View Picture			
+bfc.rsd	59	Cloud: Lower Arm		rsd Model		View Picture			
+bfd.p	1580	Cloud: Lower Arm		p Model		View Picture			
+bfe.rsd	59	Cloud: Hand		rsd Model		View Picture			
+bga.p	876	Cloud: Hand		p Model		View Picture			
+bgb.rsd	59	Cloud: Upper Leg		rsd Model		View Picture			
+bgc.p	1052	Cloud: Upper Leg		p Model		View Picture			
+bgd.rsd	59	Cloud: Lower Leg		rsd Model		View Picture			
+bge.p	1852	Cloud: Lower Leg		p Model		View Picture			
+bha.rsd	59	Cloud: Foot		rsd Model		View Picture			
+bhb.p	1052	Cloud: Foot		p Model		View Picture			
+bhc.rsd	59	Cloud: Upper Leg		rsd Model		View Picture			
+bhd.p	1052	Cloud: Upper Leg		p Model		View Picture			
+bhe.rsd	59	Cloud: Lower Leg		rsd Model		View Picture			
+bia.p	1852	Cloud: Lower Leg		p Model		View Picture			
+bib.rsd	59	Cloud: Foot		rsd Model		View Picture			
+bic.p	1052	Cloud: Foot		p Model		View Picture			
+bid.a	312	Cloud: Standing		Animtaion					
+bie.a	4176	Cloud: Running		Animtaion					
+bja.a	5556	Cloud: On chocobo		Animtaion					
+bjb.a	6660	Cloud: Running on chocobo		Animtaion					
+bjc.a	4176	Cloud: Mount chocobo		Animtaion					
+bjd.a	4176	Cloud: Dismount chocobo		Animtaion					
+bje.a	8316	Cloud: Scared		Animtaion					
+bka.a	8316	Cloud: Thinking		Animtaion					
+bkb.a	4176	Cloud: Checking something on the floor		Animtaion					
+bkc.a	1692	Cloud: Pushing a button		Animtaion					
+bkd.hrc	80	Condor		Field Skeleton		View Picture			
+bke.rsd	91	Condor: whole model		rsd model		View Picture			
+bla.p	6008	Condor: whole model		p model		View Picture			
+blb.tex	4396	Condor body		Texture		View Picture			
+blc.tex	1324	Fort condor rock		Texture		View Picture			
+bld.a	756	Fort Condor: Static animation		Animation					
+ble.hrc	80	Coral Key		Field Skeleton		View Picture			
+bma.rsd	59	Coral Key: Whole model		rsd model		View Picture			
+bmb.p	12572	Coral Key: Whole model		p model		View Picture			
+bmc.rsd	59	Coral Key: Base		rsd model		View Picture			
+bmd.p	1660	Coral Key: Base		p model		View Picture			
+bme.a	60	Coral Key: Static animation		Animation					
+bna.hrc	865	Diamond Weapon		Field Skeleton		View Picture			
+bnb.rsd	142	Diamond Weapon: 'Cape'		rsd model		View Picture			
+bnc.p	1268	Diamond Weapon: 'Cape'		p model		View Picture			
+bnd.rsd	142	Diamond Weapon: Upper Chest		rsd model		View Picture			
+bne.p	1588	Diamond Weapon: Upper Chest		p model		View Picture			
+boa.rsd	142	Diamond Weapon: Head and shoulders		rsd model		View Picture			
+bob.p	5956	Diamond Weapon: Head and shoulders		p model		View Picture			
+boc.rsd	142	Diamond Weapon: Upper Arm		rsd model		View Picture			
+bod.p	1120	Diamond Weapon: Upper Arm		p model		View Picture			
+boe.rsd	142	Diamond Weapon: Lower Arm		rsd model		View Picture			
+bone.tex	1324	Bone village 1		Texture		View Picture			
+bone2.tex	1324	Bone village 2		Texture		View Picture			
+bornwd.tex	4396	Bone village 3		Texture		View Picture			
+bpa.p	1424	Diamond Weapon: Lower Arm		p model		View Picture			
+bpb.rsd	59	Diamond Weapon: Hand		rsd model		View Picture			
+bpc.p	2404	Diamond Weapon: Hand		p model		View Picture			
+bpd.rsd	142	Diamond Weapon: Upper Arm		rsd model		View Picture			
+bpe.p	1120	Diamond Weapon: Upper Arm		p model		View Picture			
+bqa.rsd	142	Diamond Weapon: Lower Arm		rsd model		View Picture			
+bqb.p	1424	Diamond Weapon: Lower Arm		p model		View Picture			
+bqc.rsd	59	Diamond Weapon: Hand		rsd model		View Picture			
+bqd.p	2404	Diamond Weapon: Hand		p model		View Picture			
+bqe.rsd	59	Diamond Weapon: Pelvis		rsd model		View Picture			
+bra.p	508	Diamond Weapon: Pelvis		p model		View Picture			
+brb.rsd	59	Diamond Weapon: Upper Leg		rsd model		View Picture			
+brc.p	1376	Diamond Weapon: Upper Leg		p model		View Picture			
+brd.rsd	59	Diamond Weapon: Lower Leg		rsd model		View Picture			
+bre.p	2644	Diamond Weapon: Lower Leg		p model		View Picture			
+bridge.tex	2348	Wutai bridges 1		Texture		View Picture			
+bridge2.tex	1324	Wutai bridges 2		Texture		View Picture			
+bsa.rsd	142	Diamond Weapon: Foot		rsd model		View Picture			
+bsb.p	1044	Diamond Weapon: Foot		p model		View Picture			
+bsc.rsd	59	Diamond Weapon: Upper Leg		rsd model		View Picture			
+bsd.p	1376	Diamond Weapon: Upper Leg		p model		View Picture			
+bse.rsd	59	Diamond Weapon: Lower Leg		rsd model		View Picture			
+bta.p	2644	Diamond Weapon: Lower Leg		p model		View Picture			
+btb.rsd	142	Diamond Weapon: Foot		rsd model		View Picture			
+btc.p	1044	Diamond Weapon: Foot		p model		View Picture			
+btd.a	4716	Diamond Weapon: Standing		Animation					
+bte.a	18756	Diamond Weapon: Walking		Animation					
+bua.a	4716	Diamond Weapon: Looking left		Animation					
+bub.a	4716	Diamond Weapon: Looking right		Animation					
+buc.a	9396	Diamond Weapon: Starting fight		Animation					
+bud.hrc	970	Emerald Weapon		Field Skeleton		View Picture			
+bue.rsd	59	Emerald Weapon		rsd model		View Picture			
+bva.p	760	Emerald Weapon		p model		View Picture			
+bvb.rsd	59	Emerald Weapon		rsd model		View Picture			
+bvc.p	1356	Emerald Weapon		p model		View Picture			
+bvd.rsd	59	Emerald Weapon		rsd model		View Picture			
+bve.p	1868	Emerald Weapon		p model		View Picture			
+bwa.rsd	59	Emerald Weapon		rsd model		View Picture			
+bwb.p	2052	Emerald Weapon		p model		View Picture			
+bwc.rsd	59	Emerald Weapon		rsd model		View Picture			
+bwd.p	1228	Emerald Weapon		p model		View Picture			
+bwe.rsd	59	Emerald Weapon		rsd model		View Picture			
+bxa.p	1116	Emerald Weapon		p model		View Picture			
+bxb.rsd	59	Emerald Weapon		rsd model		View Picture			
+bxc.p	764	Emerald Weapon		p model		View Picture			
+bxd.rsd	59	Emerald Weapon		rsd model		View Picture			
+bxe.p	1944	Emerald Weapon		p model		View Picture			
+bya.rsd	59	Emerald Weapon		rsd model		View Picture			
+byb.p	672	Emerald Weapon		p model		View Picture			
+byc.rsd	59	Emerald Weapon		rsd model		View Picture			
+byd.p	672	Emerald Weapon		p model		View Picture			
+bye.rsd	59	Emerald Weapon		rsd model		View Picture			
+bza.p	672	Emerald Weapon		p model		View Picture			
+bzb.rsd	59	Emerald Weapon		rsd model		View Picture			
+bzc.p	672	Emerald Weapon		p model		View Picture			
+bzd.rsd	59	Emerald Weapon		rsd model		View Picture			
+bzdun.tex	4396	Sleeping man cave		Texture		View Picture			
+bze.p	1532	Emerald Weapon		rsd model		View Picture			
+caa.rsd	59	Emerald Weapon		p model		View Picture			
+cab.p	1620	Emerald Weapon		rsd model		View Picture			
+cac.rsd	59	Emerald Weapon		p model		View Picture			
+cad.p	1944	Emerald Weapon		rsd model		View Picture			
+cae.rsd	59	Emerald Weapon		p model		View Picture			
+cave.tex	1324	Materia cave1		Texture		View Picture			
+cave_s.tex	1324	Materia cave2		Texture		View Picture			
+cave2.tex	1324	Materia cave3		Texture		View Picture			
+cba.p	672	Emerald Weapon		p model		View Picture			
+cbb.rsd	59	Emerald Weapon		rsd model		View Picture			
+cbc.p	672	Emerald Weapon		p model		View Picture			
+cbd.rsd	59	Emerald Weapon		rsd model		View Picture			
+cbe.p	672	Emerald Weapon		p model		View Picture			
+cca.rsd	59	Emerald Weapon		rsd model		View Picture			
+ccb.p	672	Emerald Weapon		p model		View Picture			
+ccc.rsd	59	Emerald Weapon		rsd model		View Picture			
+ccd.p	1404	Emerald Weapon		p model		View Picture			
+cce.rsd	59	Emerald Weapon		rsd model		View Picture			
+cda.p	1944	Emerald Weapon		p model		View Picture			
+cdb.rsd	59	Emerald Weapon		rsd model		View Picture			
+cdc.p	1404	Emerald Weapon		p model		View Picture			
+cdd.rsd	59	Emerald Weapon		rsd model		View Picture			
+cde.p	1944	Emerald Weapon		p model		View Picture			
+cdl_cl2.tex	2348	Fort Condor reactor		rsd model		View Picture			
+cea.a	22356	Emerald Weapon: Standing		Animation					
+ceb.a	22356	Emerald Weapon: Swimming		Animation					
+cec.hrc	81	Gelnika		Field Skeleton		View Picture			
+ced.rsd	75	Gelnika: Whole model		rsd model		View Picture			
+cee.p	10160	Gelnika: Whole model		p model		View Picture			
+cf01.tex	2348			Texture	a castle of some kind..	View Picture			
+cfa.tex	2348	Gelnika		Texture		View Picture			
+cfb.a	756	Gelnika: Static animation		Animation					
+cfc.hrc	80	Gold Saucer		Field Skeleton		View Picture			
+cfd.rsd	91	Gold Saucer: Whole model		rsd model		View Picture			
+cfe.p	9888	Gold Saucer: Whole model		p model		View Picture			
+cga.tex	1324	Gold saucer 1		Texture		View Picture			
+cgb.tex	4396	Gold saucer 2		Texture		View Picture			
+cgc.a	756	Gold saucer: Static animation		Animation					
+cgd.hrc	251	Highwind		Field Skeleton		View Picture			
+cge.rsd	142	Highwind: Rear		rsd model		View Picture			
+cha.p	9696	Highwind: Rear		p model		View Picture			
+chb.rsd	59	Highwind: Front		rsd model		View Picture			
+chc.p	8756	Highwind: Front		p model		View Picture			
+chd.rsd	59	Highwind: Propeller 1		rsd model		View Picture			
+che.p	1036	Highwind: Propeller 1		p model		View Picture			
+cia.rsd	59	Highwind: Propeller 2		rsd model		View Picture			
+cib.p	1036	Highwind: Propeller 2		p model		View Picture			
+cic.a	1476	Highwind: Flying		Animation					
+cid.hrc	633	Highwind Final		Field Skeleton		View Picture			
+cie.rsd	142	Highwind Final: Rear		rsd model		View Picture			
+cja.p	8328	Highwind Final: Rear		p model		View Picture			
+cjb.rsd	142	Highwind Final: Right exhaust 1		rsd model		View Picture			
+cjc.p	724	Highwind Final: Right exhaust 1		p model		View Picture			
+cjd.rsd	142	Highwind Final: Right exhaust 2		rsd model		View Picture			
+cje.p	2004	Highwind Final: Right exhaust 2		p model		View Picture			
+cka.rsd	142	Highwind Final: Left exhaust 1		rsd model		View Picture			
+ckb.p	2136	Highwind Final: Left exhaust 1		p model		View Picture			
+ckc.rsd	142	Highwind Final: Left exhaust 2		rsd model		View Picture			
+ckd.p	724	Highwind Final: Left exhaust 2		p model		View Picture			
+cke.rsd	142	Highwind Final: Front		rsd model		View Picture			
+cla.p	12296	Highwind Final: Front		p model		View Picture			
+clb.rsd	142	Highwind Final: Rocket 1		rsd model		View Picture			
+clc.p	3092	Highwind Final: Rocket 1		p model		View Picture			
+cld.rsd	142	Highwind Final: Rocket 2		rsd model		View Picture			
+cle.p	3092	Highwind Final: Rocket 2		p model		View Picture			
+clf_bgs.tex	2348	Cliff over sea 1		Texture		View Picture			
+clf_ggl.tex	4396	Cliff over sea 2		Texture		View Picture			
+clf_ggs.tex	2348	Cliff over sea 3		Texture		View Picture			
+clf_l.tex	4396	Cliff over sea 4		Texture		View Picture			
+clf_ld.tex	4396	Cliff over sea 5		Texture		View Picture			
+clf_lf.tex	4396	Cliff over earth 1		Texture		View Picture			
+clf_lg.tex	2348	Cliff over sea 6		Texture		View Picture			
+clf_lr.tex	2348	Cliff over sea 7		Texture		View Picture			
+clf_lsg.tex	2348	Cliff over earth 2		Texture		View Picture			
+clf_r.tex	1324	Cliff over earth 3		Texture		View Picture			
+clf_s.tex	2348	Cliff over sea 8		Texture		View Picture			
+clf_sd.tex	2348	Cliff over earth 4		Texture		View Picture			
+clf_sf.tex	2348	Cliff over earth 5		Texture		View Picture			
+clf_sg.tex	1324	Cliff over earth 6		Texture		View Picture			
+clf_sg2.tex	1324	Cliff over sea 8		Texture		View Picture			
+clf_sr.tex	1324	Cliff over sea 9		Texture		View Picture			
+clf_ss.tex	1324	Cliff over sea 10		Texture		View Picture			
+clf_ssd.tex	1324	Cliff over sea 11		Texture		View Picture			
+clf_ssw.tex	1324	Cliff over sea 12		Texture		View Picture			
+clf_sw.tex	1324	Cliff over sea 13		Texture		View Picture			
+clf_w02.tex	4396	Two rock walls light		Texture		View Picture			
+clf_w03.tex	4396	Two rock walls dark		Texture		View Picture			
+clf_was.tex	2348	Cliff over earth 10		Texture		View Picture			
+clfeg.tex	1324	Cliff over sea 14		Texture		View Picture			
+clfegd.tex	1324	Cliff edge		Texture		View Picture			
+clftop.tex	2348	Cliff top 1		Texture	Plateau clifftops in Cosmos Canyon	View Picture			
+clftop2.tex	1324	Cliff top 2		Texture		View Picture			
+cltr.tex	16684	Mountain		Texture		View Picture			
+cma.a	6876	Highwind Final: Flying		Animation					
+cmb.hrc	81	Midgar Cannon		Field Skeleton		View Picture			
+cmc.rsd	75	Midgar Cannon: Whole model		rsd model		View Picture			
+cmd.p	7744	Midgar Cannon: Whole model		p model		View Picture			
+cme.tex	2348	Midgar Cannon whole texture		Texture		View Picture			
+cna.a	756	Midgar Cannon: Static animation		Animation					
+cnb.hrc	78	Ancient forest rock		Field Skeleton		View Picture			
+cnc.rsd	91	Ancient forest rock: Whole model		rsd model		View Picture			
+cnd.p	3148	Ancient forest rock: Whole model		p model		View Picture			
+cndl_cl.tex	2348	Fort condor reactor 1		Texture		View Picture			
+cndlf.tex	4396	Fort condor reactor 2		Texture		View Picture			
+cndlf02.tex	4396	Fort condor reactor 3		Texture		View Picture			
+cne.tex	2348	Ancient forest cliffs		Texture		View Picture			
+coa.tex	1324	Ancient forest top		Texture		View Picture			
+cob.a	756	Ancient forest: Static animation		Animation					
+coc.hrc	79	Rocket town rocket		Field Skeleton		View Picture			
+cod.rsd	75	Rocket town rocket: Whole model		rsd model		View Picture			
+coe.p	2644	Rocket town rocket: Whole model		p model		View Picture			
+comtr.tex	812			Texture		View Picture			
+cosinn.tex	1324			Texture		View Picture			
+cosinn2.tex	1324			Texture		View Picture			
+cpa.tex	2348	Rocket base 1		Texture		View Picture			
+cpb.a	756	Rocket town rocket: Static animation		Animation					
+cpc.hrc	82	Rocket base		Field Skeleton		View Picture			
+cpd.rsd	131	Rocket base: Whole model		rsd model		View Picture			
+cpe.p	3988	Rocket base: Whole model		p model		View Picture			
+cqa.tex	2348	Rocket base 2		Texture		View Picture			
+cqb.a	756	Rocket base: Static animation		Animation					
+cqc.hrc	1028	Ruby Weapon		Field Skeleton		View Picture			
+cqd.rsd	59	Ruby Weapon: Chest		rsd model		View Picture			
+cqe.p	4136	Ruby Weapon: Chest		p model		View Picture			
+cra.rsd	59	Ruby Weapon: 'Wing'		rsd model		View Picture			
+crb.p	1196	Ruby Weapon: 'Wing'		p model		View Picture			
+crc.rsd	59	Ruby Weapon: Shoulder		rsd model		View Picture			
+crd.p	776	Ruby Weapon: Shoulder		p model		View Picture			
+cre.rsd	59	Ruby Weapon: Arm part 1		rsd model		View Picture			
+csa.p	1148	Ruby Weapon: Arm part 1		p model		View Picture			
+csb.rsd	59	Ruby Weapon: Arm part 2		rsd model		View Picture			
+csc.p	840	Ruby Weapon: Arm part 2		p model		View Picture			
+csd.rsd	59	Ruby Weapon: Arm part 3		rsd model		View Picture			
+cse.p	840	Ruby Weapon: Arm part 3		p model		View Picture			
+csmk.tex	1324			Texture		View Picture			
+csmk2.tex	1324			Texture		View Picture			
+cstds01.tex	1324	Costa del Sol 1		Texture		View Picture			
+cstds02.tex	4396	Costa del Sol 2		Texture		View Picture			
+cta.rsd	59	Ruby Weapon: Arm part 4		rsd model		View Picture			
+ctb.p	840	Ruby Weapon: Arm part 4		p model		View Picture			
+ctc.rsd	59	Ruby Weapon: Arm part 5		rsd model		View Picture			
+ctd.p	840	Ruby Weapon: Arm part 5		p model		View Picture			
+cte.rsd	59	Ruby Weapon: Hand		rsd model		View Picture			
+cua.p	748	Ruby Weapon: Hand		p model		View Picture			
+cub.rsd	59	Ruby Weapon: Claw 1		rsd model		View Picture			
+cuc.p	548	Ruby Weapon: Claw 1		p model		View Picture			
+cud.rsd	59	Ruby Weapon: Claw 2		rsd model		View Picture			
+cue.p	548	Ruby Weapon: Claw 2		p model		View Picture			
+cva.rsd	59	Ruby Weapon: Claw 3		rsd model		View Picture			
+cvb.p	548	Ruby Weapon: Claw 3		p model		View Picture			
+cvc.rsd	59	Ruby Weapon: Neck part 1		rsd model		View Picture			
+cvd.p	872	Ruby Weapon: Neck part 1		p model		View Picture			
+cve.rsd	59	Ruby Weapon: Neck part 2		rsd model		View Picture			
+cwa.p	872	Ruby Weapon: Neck part 2		p model		View Picture			
+cwb.rsd	59	Ruby Weapon: Neck part 3		rsd model		View Picture			
+cwc.p	872	Ruby Weapon: Neck part 3		p model		View Picture			
+cwd.rsd	59	Ruby Weapon: Neck part 4		rsd model		View Picture			
+cwe.p	872	Ruby Weapon: Neck part 4		p model		View Picture			
+cxa.rsd	59	Ruby Weapon: Head		rsd model		View Picture			
+cxb.p	1732	Ruby Weapon: Head		p model		View Picture			
+cxc.rsd	59	Ruby Weapon: Chin Sting		rsd model		View Picture			
+cxd.p	548	Ruby Weapon: Chin Sting		p model		View Picture			
+cxe.rsd	59	Ruby Weapon: 'Wing'		rsd model		View Picture			
+cya.p	1196	Ruby Weapon: 'Wing'		p model		View Picture			
+cyb.rsd	59	Ruby Weapon: Shoulder		rsd model		View Picture			
+cyc.p	776	Ruby Weapon: Shoulder		p model		View Picture			
+cyd.rsd	59	Ruby Weapon: Arm part 1		rsd model		View Picture			
+cye.p	1148	Ruby Weapon: Arm part 1		p model		View Picture			
+cza.rsd	59	Ruby Weapon: Arm part 2		rsd model		View Picture			
+czb.p	840	Ruby Weapon: Arm part 2		p model		View Picture			
+czc.rsd	59	Ruby Weapon: Arm part 3		rsd model		View Picture			
+czd.p	840	Ruby Weapon: Arm part 3		p model		View Picture			
+cze.rsd	59	Ruby Weapon: Arm part 4		rsd model		View Picture			
+daa.p	840	Ruby Weapon: Arm part 4		p model		View Picture			
+dab.rsd	59	Ruby Weapon: Arm part 5		rsd model		View Picture			
+dac.p	840	Ruby Weapon: Arm part 5		p model		View Picture			
+dad.rsd	59	Ruby Weapon: Hand		rsd model		View Picture			
+dae.p	748	Ruby Weapon: Hand		p model		View Picture			
+dba.rsd	59	Ruby Weapon: Claw 1		rsd model		View Picture			
+dbb.p	548	Ruby Weapon: Claw 1		p model		View Picture			
+dbc.rsd	59	Ruby Weapon: Claw 2		rsd model		View Picture			
+dbd.p	548	Ruby Weapon: Claw 2		p model		View Picture			
+dbe.rsd	59	Ruby Weapon: Claw 3		rsd model		View Picture			
+dca.p	548	Ruby Weapon: Claw 3		p model		View Picture			
+dcb.rsd	59	Ruby Weapon: 'skirt'		rsd model		View Picture			
+dcc.p	4340	Ruby Weapon: 'skirt'		p model		View Picture			
+dcd.rsd	59	Ruby Weapon: Legs and feet		rsd model		View Picture			
+dce.p	5600	Ruby Weapon: Legs and feet		p model		View Picture			
+dda.a	22356	Ruby Weapon: Standing		Animation					
+ddb.a	22356	Ruby Weapon: Defeated		Animation					
+ddc.a	22356	Ruby Weapon: Start battle		Animation					
+ddd.hrc	287	Grey Submarine		Field Skeleton		View Picture			
+dde.rsd	142	Grey Submarine: Rear		rsd model		View Picture			
+dea.p	11644	Grey Submarine: Rear		p model		View Picture			
+deb.rsd	142	Grey Submarine: Propeller		rsd model		View Picture			
+dec.p	864	Grey Submarine: Propeller		p model		View Picture			
+ded.rsd	142	Grey Submarine: Front		rsd model		View Picture			
+dee.p	12372	Grey Submarine: Front		p model		View Picture			
+des01.tex	1324	Desert falling sands 1		Texture	des01-4 are animated, counts as one texture	View Picture			
+des02.tex	1324	Desert falling sands 2		Texture	des01-4 are animated, counts as one texture	View Picture			
+des03.tex	1324	Desert falling sands 3		Texture	des01-4 are animated, counts as one texture	View Picture			
+des04.tex	1324	Desert falling sands 4		Texture	des01-4 are animated, counts as one texture	View Picture			
+desert.tex	4396	Desert		Texture	Main sand texture, accounts for 90%	View Picture			
+desor.tex	2348	Desert cliff		Texture		View Picture			
+dfa.rsd	59	Grey Submarine: Right Fin		rsd model		View Picture			
+dfb.p	848	Grey Submarine: Right Fin		p model		View Picture			
+dfc.rsd	59	Grey Submarine: Left Fin		rsd model		View Picture			
+dfd.p	848	Grey Submarine: Left Fin		p model		View Picture			
+dfe.a	684	Grey Submarine: Moving		Animation					
+dfx.tex	67436	Effects like running on sand, over water etc		Texture		View Picture			
+dga.hrc	287	Red Submarine		Field Skeleton		View Picture			
+dgb.rsd	142	Red Submarine: Rear		rsd model		View Picture			
+dgc.p	12428	Red Submarine: Rear		p model		View Picture			
+dgd.rsd	142	Red Submarine: Propeller		rsd model		View Picture			
+dge.p	992	Red Submarine: Propeller		p model		View Picture			
+dha.rsd	142	Red Submarine: Front		rsd model		View Picture			
+dhb.p	12328	Red Submarine: Front		p model		View Picture			
+dhc.rsd	142	Red Submarine: Right Fin		rsd model		View Picture			
+dhd.p	1000	Red Submarine: Right Fin		p model		View Picture			
+dhe.rsd	142	Red Submarine: Left Fin		rsd model		View Picture			
+dia.p	1000	Red Submarine: Left Fin		p model		View Picture			
+dib.a	684	Red Submarine: Moving		Animation					
+dic.hrc	80	Unknown		Field skeleton		View Picture			
+did.rsd	75			rsd model		View Picture			
+die.p	6844			p model		View Picture			
+dja.tex	4396			Texture		View Picture			
+djb.a	756			Animation					
+djc.hrc	78	Pole from glacier		Field Skeleton		View Picture			
+djd.rsd	75	Pole from glacier: Whole model		rsd model		View Picture			
+dje.p	1108	Pole from glacier: Whole model		p model		View Picture			
+dka.tex	812	Pole from glacier whole texture		Texture		View Picture			
+dkb.a	756	Pole from glacier: Static animation		Animation					
+dkc.hrc	72	Tail		Field Skeleton		View Picture			
+dkd.rsd	59	Tail: whole model		rsd model		View Picture			
+dke.p	1244	Tail: whole model		p model		View Picture			
+dla.a	396	Tail: Static animation		Animation					
+dlb.hrc	870	Tifa: Field Skeleton		Field Skeleton		View Picture			
+dlc.rsd	59	Tifa: Lower Chest		rsd Model		View Picture			
+dld.p	2720	Tifa: Lower Chest		p Model		View Picture			
+dle.rsd	59	Tifa: Upper Chest		rsd Model		View Picture			
+dma.p	4168	Tifa: Upper Chest		p Model		View Picture			
+dmb.rsd	172	Tifa: Head		rsd Model		View Picture			
+dmc.p	10296	Tifa: Head		p Model		View Picture			
+dmd.tex	1324	Tifa: Eye		Texture		View Picture			
+dme.tex	1324	Tifa: Eye		Texture		View Picture			
+dna.tex	1324	Tifa: Mouth		Texture		View Picture			
+dnb.rsd	59	Tifa: Hair		rsd Model		View Picture			
+dnc.p	2168	Tifa: Hair		p Model		View Picture			
+dnd.rsd	59	Tifa: Upper Arm		rsd Model		View Picture			
+dne.p	1872	Tifa: Upper Arm		p Model		View Picture			
+doa.rsd	59	Tifa: Elbow		rsd Model		View Picture			
+dob.p	676	Tifa: Elbow		p Model		View Picture			
+doc.rsd	59	Tifa: Lower Arm		rsd Model		View Picture			
+dod.p	1872	Tifa: Lower Arm		p Model		View Picture			
+doe.rsd	59	Tifa: Hand		rsd Model		View Picture			
+dpa.p	976	Tifa: Hand		p Model		View Picture			
+dpb.rsd	59	Tifa: Upper Arm		rsd Model		View Picture			
+dpc.p	1872	Tifa: Upper Arm		p Model		View Picture			
+dpd.rsd	59	Tifa: Lower Arm		rsd Model		View Picture			
+dpe.p	1872	Tifa: Lower Arm		p Model		View Picture			
+dqa.rsd	59	Tifa: Hand		rsd Model		View Picture			
+dqb.p	976	Tifa: Hand		p Model		View Picture			
+dqc.rsd	59	Tifa: Upper Leg		rsd Model		View Picture			
+dqd.p	916	Tifa: Upper Leg		p Model		View Picture			
+dqe.rsd	59	Tifa: Lower Leg		rsd Model		View Picture			
+dra.p	1968	Tifa: Lower Leg		p Model		View Picture			
+drb.rsd	59	Tifa: Foot		rsd Model		View Picture			
+drc.p	1176	Tifa: Foot		p Model		View Picture			
+drd.rsd	59	Tifa: Upper Leg		rsd Model		View Picture			
+dre.p	916	Tifa: Upper Leg		p Model		View Picture			
+ds_s1.tex	1324	Sea waving 1 dark		Texture		View Picture			
+ds_s2.tex	1324	Sea waving 2 dark		Texture		View Picture			
+ds_s3.tex	1324	Sea waving 3 dark		Texture		View Picture			
+ds_s4.tex	1324	Sea waving 4 dark		Texture		View Picture			
+ds1.tex	1324	Sea waving 1 light		Texture		View Picture			
+ds2.tex	1324	Sea waving 2 light		Texture		View Picture			
+ds3.tex	1324	Sea waving 3 light		Texture		View Picture			
+ds4.tex	1324	Sea waving 4 light		Texture		View Picture			
+dsa.rsd	59	Tifa: Lower Leg		rsd Model		View Picture			
+dsb.p	1968	Tifa: Lower Leg		p Model		View Picture			
+dsc.rsd	59	Tifa: Foot		rsd Model		View Picture			
+dsd.p	1176	Tifa: Foot		p Model		View Picture			
+dse.a	348	Tifa: Standing		Animation					
+dsee1.tex	1324	Sea calm 1		Texture		View Picture			
+dsee2.tex	1324	Sea calm 2		Texture		View Picture			
+dsee3.tex	1324	Sea calm 3		Texture		View Picture			
+dsee4.tex	1324	Sea calm 4		Texture		View Picture			
+dsrt_d.tex	1324	Desert		Texture		View Picture			
+dsrt_e.tex	8492	Desert edges with green areas		Texture	Found in desert around Golden Saucer	View Picture			
+dta.a	4716	Tifa: Running		Animation					
+dtb.a	6276	Tifa: On chocobo		Animation					
+dtc.a	7524	Tifa: Running on chocobo		Animation					
+dtd.a	4404	Tifa: Mount chocobo		Animation					
+dte.a	4404	Tifa: Dismount chocobo		Animation					
+dua.a	9396	Tifa: Scared		Animation					
+dub.a	2532	Tifa: Bowing		Animation					
+duc.a	6276	Tifa: Looking right		Animation					
+dud.a	9396	Tifa: Hands to face		Animation					
+due.a	6276	Tifa: Saying yes		Animation					
+dva.hrc	295	Tiny Bronco: Field Skeleton		Field Skeleton		View Picture			
+dvb.rsd	59	Tiny Bronco: Rear		rsd model		View Picture			
+dvc.p	6516	Tiny Bronco: Rear		p model		View Picture			
+dvd.rsd	59	Tiny Bronco: Float gear		rsd model		View Picture			
+dve.p	7036	Tiny Bronco: Float gear		p model		View Picture			
+dwa.rsd	59	Tiny Bronco: Front		rsd model		View Picture			
+dwb.p	5132	Tiny Bronco: Front		p model		View Picture			
+dwc.rsd	59	Tiny Bronco: Fan base 1		rsd model		View Picture			
+dwd.p	1228	Tiny Bronco: Fan base 1		p model		View Picture			
+dwe.rsd	59	Tiny Bronco: Fan 1		rsd model		View Picture			
+dxa.p	1116	Tiny Bronco: Fan 1		p model		View Picture			
+dxb.rsd	59	Tiny Bronco: Fan base 2		rsd model		View Picture			
+dxc.p	1228	Tiny Bronco: Fan base 2		p model		View Picture			
+dxd.rsd	59	Tiny Bronco: Fan 2		rsd model		View Picture			
+dxe.p	1116	Tiny Bronco: Fan 2		p model		View Picture			
+dya.a	1656	Tiny Bronco: Moving fans		Animation					
+dyb.hrc	1088	Ultima Weapon		Field Skeleton		View Picture			
+dyc.rsd	142	Ultima Weapon: Middle body		rsd model		View Picture			
+dyd.p	1620	Ultima Weapon: Middle body		p model		View Picture			
+dye.rsd	142	Ultima Weapon: Upper leg		rsd model		View Picture			
+dza.p	1308	Ultima Weapon: Upper leg		p model		View Picture			
+dzb.rsd	142	Ultima Weapon: Lower leg		rsd model		View Picture			
+dzc.p	1060	Ultima Weapon: Lower leg		p model		View Picture			
+dzd.rsd	142	Ultima Weapon: Claws		rsd model		View Picture			
+dze.p	764	Ultima Weapon: Claws		p model		View Picture			
+eaa.rsd	142	Ultima Weapon: Upper leg		rsd model		View Picture			
+eab.p	1304	Ultima Weapon: Upper leg		p model		View Picture			
+eac.rsd	142	Ultima Weapon: Lower leg		rsd model		View Picture			
+ead.p	1060	Ultima Weapon: Lower leg		p model		View Picture			
+eae.rsd	142	Ultima Weapon: Claws		rsd model		View Picture			
+eba.p	764	Ultima Weapon: Claws		p model		View Picture			
+ebb.rsd	142	Ultima Weapon: Upper leg		rsd model		View Picture			
+ebc.p	1284	Ultima Weapon: Upper leg		p model		View Picture			
+ebd.rsd	142	Ultima Weapon: Lower leg		rsd model		View Picture			
+ebe.p	1060	Ultima Weapon: Lower leg		p model		View Picture			
+eca.rsd	142	Ultima Weapon: Claws		rsd model		View Picture			
+ecb.p	764	Ultima Weapon: Claws		p model		View Picture			
+ecc.rsd	142	Ultima Weapon: Upper leg		rsd model		View Picture			
+ecd.p	1284	Ultima Weapon: Upper leg		p model		View Picture			
+ece.rsd	142	Ultima Weapon: Lower leg		rsd model		View Picture			
+eda.p	1060	Ultima Weapon: Lower leg		p model		View Picture			
+edb.rsd	142	Ultima Weapon: Claws		rsd model		View Picture			
+edc.p	764	Ultima Weapon: Claws		p model		View Picture			
+edd.rsd	142	Ultima Weapon: Front body		rsd model		View Picture			
+ede.p	1968	Ultima Weapon: Front body		p model		View Picture			
+edes01.tex	1324	Desert falling sands edge 1		Texture	Found ONLY near Golden saucer (edes01-04 count as one texture)	View Picture			
+edes02.tex	1324	Desert falling sands edge 2		Texture	Found ONLY near Golden saucer (edes01-04 count as one texture)	View Picture			
+edes03.tex	1324	Desert falling sands edge 3		Texture	Found ONLY near Golden saucer (edes01-04 count as one texture)	View Picture			
+edes04.tex	1324	Desert falling sands edge 4		Texture	Found ONLY near Golden saucer (edes01-04 count as one texture)	View Picture			
+eea.rsd	142	Ultima Weapon: Chest		rsd model		View Picture			
+eeb.p	2524	Ultima Weapon: Chest		p model		View Picture			
+eec.rsd	142	Ultima Weapon: Head		rsd model		View Picture			
+eed.p	2916	Ultima Weapon: Head		p model		View Picture			
+eee.rsd	142	Ultima Weapon: Shoulder		rsd model		View Picture			
+efa.p	2524	Ultima Weapon: Shoulder		p model		View Picture			
+efb.rsd	142	Ultima Weapon: Arm		rsd model		View Picture			
+efc.p	2068	Ultima Weapon: Arm		p model		View Picture			
+efd.rsd	142	Ultima Weapon: Lower wing		rsd model		View Picture			
+efe.p	848	Ultima Weapon: Lower wing		p model		View Picture			
+ega.rsd	142	Ultima Weapon: Upper wing		rsd model		View Picture			
+egb.p	712	Ultima Weapon: Upper wing		p model		View Picture			
+egc.rsd	142	Ultima Weapon: Shoulder		rsd model		View Picture			
+egd.p	2640	Ultima Weapon: Shoulder		p model		View Picture			
+ege.rsd	142	Ultima Weapon: Arm		rsd model		View Picture			
+eha.p	2068	Ultima Weapon: Arm		p model		View Picture			
+ehb.rsd	142	Ultima Weapon: Lower wing		rsd model		View Picture			
+ehc.p	848	Ultima Weapon: Lower wing		p model		View Picture			
+ehd.rsd	142	Ultima Weapon: Upper wing		rsd model		View Picture			
+ehe.p	712	Ultima Weapon: Upper wing		p model		View Picture			
+eia.rsd	142	Ultima Weapon: Tail		rsd model		View Picture			
+eib.p	1584	Ultima Weapon: Tail		p model		View Picture			
+eic.a	1152	Ultima Weapon: Standing on ground		Animation					
+eid.a	11196	Ultima Weapon: Flying		Animation					
+eie.a	3012	Ultima Weapon: Arriving destination		Animation					
+eja.a	1524	Ultima Weapon: At destination 1		Animation					
+ejb.a	12312	Ultima Weapon: At destination 2		Animation					
+ejc.a	14544	Ultima Weapon: Starting battle		Animation					
+ejd.a	3384	Ultima Weapon: After battle		Animation					
+eje.hrc	78	Underwater Reactor		Field Skeleton		View Picture			
+eka.rsd	75	Underwater Reactor: Whole model		rsd model		View Picture			
+ekb.p	13120	Underwater Reactor: Whole model		p model		View Picture			
+ekc.tex	2348	Underwater reactor whole texture		Texture		View Picture			
+ekd.a	756	Underwater Reactor: Static animation		Animation					
+eke.hrc	117	Ship		Field Skeleton		View Picture			
+ela.rsd	142	Ship: Stairs and barriers		rsd model		View Picture			
+elb.p	6056	Ship: Stairs and barriers		p model		View Picture			
+elc.rsd	142	Ship: Control towers		rsd model		View Picture			
+eld.p	9700	Ship: Control towers		p model		View Picture			
+ele.rsd	142	Ship: Main body		rsd model		View Picture			
+elm_gro.tex	4396	Kalm		Texture		View Picture			
+elm_r.tex	1324	Kalm roof 1		Texture		View Picture			
+elm_r2.tex	1324	Kalm roof 2		Texture		View Picture			
+elm01.tex	1324	Kalm house 1		Texture		View Picture			
+elm02.tex	1324	Kalm house 2		Texture		View Picture			
+ema.p	16852	Ship: Main body		rsd model		View Picture			
+emb.rsd	142	Ship: Crates		p model		View Picture			
+emc.p	9552	Ship: Crates		rsd model		View Picture			
+emd.rsd	142	Ship: Antennas		p model		View Picture			
+eme.p	2292	Ship: Antennas		rsd model		View Picture			
+ena.a	2916	Sailing		Animation					
+enc_w.bin	2208								
+fall1.tex	1324	Waterfall 1		Texture	Animated: fall1-8 count as one texture	View Picture			
+fall2.tex	1324	Waterfall 2		Texture	Animated: fall1-8 count as one texture	View Picture			
+fall3.tex	1324	Waterfall 3		Texture	Animated: fall1-8 count as one texture	View Picture			
+fall4.tex	1324	Waterfall 4		Texture	Animated: fall1-8 count as one texture	View Picture			
+fall5.tex	1324	Waterfall 5		Texture	Animated: fall1-8 count as one texture	View Picture			
+fall6.tex	1324	Waterfall 6		Texture	Animated: fall1-8 count as one texture	View Picture			
+fall7.tex	1324	Waterfall 7		Texture	Animated: fall1-8 count as one texture	View Picture			
+fall8.tex	1324	Waterfall 8		Texture	Animated: fall1-8 count as one texture	View Picture			
+farm_g.tex	1324	Chocobo farm		Texture	Shadowed grass behind house/barn	View Picture			
+farm_r.tex	812	Chocobo farm roof		Texture	Farm Roof Texture	View Picture			
+farm01.tex	1324	Chocobo farm 1		Texture	One side of the house/barn	View Picture			
+farm02.tex	1324	Chocobo farm 2		Texture	One side of the house/barn	View Picture			
+field.tbl	1536								
+fld.tex	4396	Green field 1		Texture	Normal green grass	View Picture			
+fld_02.tex	4396	Green field 2		Texture	Normal green grass w/cloud shadows	View Picture			
+fld_s.tex	4396	Green field 4		Texture	Shadowed grass	View Picture			
+fld_s2.tex	1324	Green field 3		Texture	Shadowed grass	View Picture			
+fld_sw.tex	4396	Green field 5		Texture	Shadowed grass	View Picture			
+fld_v.tex	16684	Green field 6		Texture	Normal grass w/cloud shadows(works together with fld_s2)	View Picture			
+fld_vd.tex	2348	Green field 8		Texture	Shadowed grass near mountains	View Picture			
+fld_vd2.tex	2348	Green field 7		Texture	Shadowed grass near mountains	View Picture			
+fvedge.tex	2348	Green field with edge		Texture	Used at the edges of some forests	View Picture			
+gclf_d.tex	8492	Cliff w/horizontal crags		Texture	Used on shaded mountains in Cosmos Canyon	View Picture			
+gclf_g.tex	2348	Cliff w/horizontal crags		Texture	Used on shaded mountains in Cosmos Canyon	View Picture			
+gclfwa.tex	8492	Cliff w/horizontal crags		Texture	Used on bright mountains in Cosmos Canyon	View Picture			
+gclfwa2.tex	2348	Cliff w/horizontal crags		Texture	Used on bright mountains in Cosmos Canyon	View Picture			
+gclfwag.tex	2348			Texture		View Picture			
+gg_gro.tex	4396	Gound tile underneath Golden Saucer World model		Texture	Shadows for GS and Prision town	View Picture			
+gg_mts.tex	8492			Texture		View Picture			
+ggmk.tex	4396			Texture		View Picture			
+ggmt.tex	16684	Mountains w/vertical crags		Texture	Used on bright mountains near Golden Saucer	View Picture			
+ggmt_e.tex	4396	Grass/Mountain Transistion Texture		Texture	Used on bright mountains near Golden Saucer	View Picture			
+ggmt_ed.tex	4396	Grass/Mountain Transistion Texture		Texture	Used on shaded mountains near Golden Saucer	View Picture			
+ggmt_eg.tex	1324	Grass/Mountain Transisiton Texture		Texture	Only used on 1 tile near Coral	View Picture			
+ggmtd.tex	16684	Mountains w/vertical crags		Texture	Used on shaded mountains near golden saucer	View Picture			
+ggs_g.tex	1324			Texture		View Picture			
+ggshr.tex	1324			Texture		View Picture			
+ggshrg.tex	1324			Texture		View Picture			
+gia.tex	2348			Texture		View Picture			
+gia_d.tex	2348			Texture		View Picture			
+gia_d2.tex	2348			Texture		View Picture			
+gia_g.tex	1324			Texture		View Picture			
+gia_g2.tex	1324			Texture		View Picture			
+gia2.tex	2348			Texture		View Picture			
+gmt_eda.tex	1324			Texture		View Picture			
+gonclf.tex	8492	Cliff w/horizontal crags		Texture	Used on some cliffs near Cosmos Canyon	View Picture			
+gredge.tex	1324			Texture		View Picture			
+hokola01.tex	4396			Texture		View Picture			
+hokola02.tex	4396			Texture		View Picture			
+hyouga.tex	4396			Texture		View Picture			
+iceclf.tex	2348			Texture		View Picture			
+iceclfd.tex	2348			Texture		View Picture			
+iceclfg.tex	1324			Texture		View Picture			
+jun.tex	4396	Jungle 1		Texture		View Picture			
+jun_d.tex	4396	Jungle 2		Texture		View Picture			
+jun_e.tex	1324	Jungle edge		Texture		View Picture			
+jun_gro.tex	4396	Temple of the ancients		Texture		View Picture			
+junmk.tex	1324			Texture		View Picture			
+junn01.tex	1324	Junon 1		Texture		View Picture			
+junn02.tex	1324	Junon 2		Texture		View Picture			
+junn03.tex	1324	Junon 3		Texture		View Picture			
+junn04.tex	1324	Junon 4		Texture		View Picture			
+jutmpl01.tex	4396	Temple of the ancients building		Texture		View Picture			
+lake_a.tex	33068			Texture		View Picture			
+lake_ef.tex	1324			Texture		View Picture			
+lake_fl.tex	4396			Texture		View Picture			
+lake-e.tex	1324			Texture		View Picture			
+lostclf.tex	2348			Texture		View Picture			
+lostmt.tex	4396			Texture		View Picture			
+lostmtd.tex	4396			Texture		View Picture			
+lostmts.tex	2348			Texture		View Picture			
+lostwd_e.tex	1324			Texture		View Picture			
+lostwod.tex	4396			Texture		View Picture			
+lst1.tex	1324			Texture		View Picture			
+lst2.tex	1324			Texture		View Picture			
+lst3.tex	1324			Texture		View Picture			
+lst4.tex	1324			Texture		View Picture			
+lstwd_e2.tex	1324			Texture		View Picture			
+map.tex	8492	Map locators		Texture		View Picture			
+md_mt.tex	16684			Texture		View Picture			
+md_mtd.tex	16684			Texture		View Picture			
+md_mts.tex	8492			Texture		View Picture			
+md_snow.tex	4396			Texture		View Picture			
+md_snw2.tex	4396			Texture		View Picture			
+md_snwd.tex	8492			Texture		View Picture			
+md_snwe.tex	4396			Texture		View Picture			
+md_snws.tex	4396			Texture		View Picture			
+md_snwt.tex	4396			Texture		View Picture			
+md_snww.tex	1324			Texture		View Picture			
+md_sw_s.tex	16684	Swamp Field		Texture		View Picture			
+md_swd2.tex	1324			Texture		View Picture			
+md_swnp.tex	16684	Swamp Field		Texture	Same as md_sw_s.tex	View Picture			
+md01.tex	1324	Midgar 1		Texture		View Picture			
+md02.tex	16684	Midgar 2		Texture		View Picture			
+md03.tex	556	Midgar 3		Texture		View Picture			
+md04.tex	1324	Midgar 4		Texture		View Picture			
+md05.tex	1324	Midgar 5		Texture		View Picture			
+md06.tex	812	Midgar 6		Texture		View Picture			
+md07.tex	556	Midgar 7		Texture		View Picture			
+mdsrt_e.tex	4396			Texture		View Picture			
+mdsrt_ed.tex	4396			Texture		View Picture			
+mdsrt_eg.tex	1324			Texture		View Picture			
+mes	4096								
+meteo.tex	16684	Meteor		Texture	Meteor seen in the sky on worldmap	View Picture			
+midg.tex	2796			Texture		View Picture			
+midil.tex	1324			Texture		View Picture			
+midild.tex	1324			Texture		View Picture			
+midlmap.tex	65836	World Map		Texture	Large color world map/unsure of the difference between the 2	View Picture			
+midlmap2.tex	65836	World Map 2		Texture	Large color world map/unsure of the difference between the 2	View Picture			
+mt_ewg.tex	1324			Texture		View Picture			
+mt_road.tex	4396			Texture		View Picture			
+mt_se.tex	1324			Texture		View Picture			
+mt_se2.tex	4396			Texture		View Picture			
+mt_sg01.tex	1324			Texture		View Picture			
+mt_sg02.tex	1324			Texture		View Picture			
+mt_sg03.tex	1324			Texture		View Picture			
+mt_sg04.tex	1324			Texture		View Picture			
+mtcoin.tex	4396			Texture		View Picture			
+mtwas_e.tex	4396			Texture		View Picture			
+mtwas_ed.tex	4396			Texture		View Picture			
+mzes.tex	1324			Texture		View Picture			
+mzmt_e.tex	8492			Texture		View Picture			
+mzmt_ed.tex	4396			Texture		View Picture			
+mzmt_edw.tex	4396			Texture		View Picture			
+mzmt_ew.tex	4396			Texture		View Picture			
+mzmt_o.tex	4396			Texture		View Picture			
+mzmt_od.tex	4396			Texture		View Picture			
+mzmt_s.tex	4396			Texture		View Picture			
+mzmt_sd.tex	4396			Texture		View Picture			
+ncol_gro.tex	4396	North corel 1		Texture	The ground below North Corel	View Picture			
+ncole01.tex	1324	North corel 2		Texture	Tent Texture for North Corel	View Picture			
+ncole02.tex	1324	North corel 3		Texture	Tent Texture for North Corel	View Picture			
+nivl_gro.tex	4396	Nibelheim		Texture	The ground below Nibelheim	View Picture			
+nivl_mt.tex	8492	Nibelheim mounts		Texture	Bottom of mountains behind Nibleheim	View Picture			
+nivl_top.tex	1324	Nibelheim mounts top		Texture	Tops of mountains behind Niblheim	View Picture			
+nivlr.tex	1324	Nibelheim roof		Texture	Roofs of Nibleheim	View Picture			
+pond.tex	1324			Texture		View Picture			
+port.tex	1324			Texture		View Picture			
+port_d.tex	1324			Texture		View Picture			
+radar.tex	8492	Minimap Radar		Texture	Grey Minimap / bottom right corner	View Picture			
+rct_gro.tex	8492	Rocket town		Texture	The ground below Rocket Town	View Picture			
+riv_cls.tex	4396			Texture		View Picture			
+riv_l1.tex	1324			Texture		View Picture			
+riv_l2.tex	1324			Texture		View Picture			
+riv_l3.tex	1324			Texture		View Picture			
+riv_l4.tex	1324			Texture		View Picture			
+riv_m.tex	1324			Texture		View Picture			
+riv_m2.tex	1324			Texture		View Picture			
+rivr.tex	1324			Texture		View Picture			
+rivrclf.tex	4396			Texture		View Picture			
+rivs1.tex	1324			Texture		View Picture			
+rivs2.tex	1324			Texture		View Picture			
+rivs3.tex	1324			Texture		View Picture			
+rivs4.tex	1324			Texture		View Picture			
+rivshr.tex	4396			Texture		View Picture			
+rivssr.tex	2348			Texture		View Picture			
+rivstrt.tex	1324			Texture		View Picture			
+rm1.tex	1324			Texture		View Picture			
+rm2.tex	1324			Texture		View Picture			
+rm3.tex	1324			Texture		View Picture			
+rm4.tex	1324			Texture		View Picture			
+rocet.tex	1324			Texture		View Picture			
+rock.tex	65836			Texture		View Picture			
+rs_ss.tex	1324			Texture		View Picture			
+rzclf02.tex	4396			Texture		View Picture			
+sango.tex	1324			Texture		View Picture			
+sango2.tex	1324			Texture		View Picture			
+sango3.tex	1324			Texture		View Picture			
+sango4.tex	4396			Texture		View Picture			
+scave.tex	65836			Texture		View Picture			
+sdun.tex	4396			Texture		View Picture			
+sdun02.tex	4396			Texture		View Picture			
+sh_s1.tex	1324			Texture		View Picture			
+sh_s2.tex	1324			Texture		View Picture			
+sh_s3.tex	1324			Texture		View Picture			
+sh_s4.tex	1324			Texture		View Picture			
+sh1.tex	1324			Texture		View Picture			
+sh2.tex	1324			Texture		View Picture			
+sh3.tex	1324			Texture		View Picture			
+sh4.tex	1324			Texture		View Picture			
+shadow.tex	4396	Ultima weapon, highwind and character shadows		Texture	World map vehicle shadows	View Picture			
+shedge.tex	2348	Beach edge w/forest shadow		Texture	Found near Temple Of Ancients	View Picture			
+shlm_1.tex	1324			Texture		View Picture			
+shlm_2.tex	1324			Texture		View Picture			
+shlm_3.tex	1324			Texture		View Picture			
+shlm_4.tex	1324			Texture		View Picture			
+shol.tex	16684			Texture		View Picture			
+shol_s.tex	4396			Texture		View Picture			
+shor.tex	16684	Beach sand w/grass transistion		Texture	Found all over world	View Picture			
+shor_s.tex	4396	Beach sand w/grass transistion (shaded)		Texture	Found all over world	View Picture			
+shor_s2.tex	1324	Beach sand w/grass transistion (shaded)		Texture	Found all over world	View Picture			
+shor_v.tex	1324	Beach Sand without grass		Texture		View Picture			
+silo.tex	1324	Chocobo Farm Texture		Texture	Texture for the Silo @ Chocobo Farm	View Picture			
+slope.tex	4396			Texture		View Picture			
+sng01.tex	16684			Texture		View Picture			
+sng02.tex	16684			Texture		View Picture			
+snow_es.tex	1324			Texture		View Picture			
+snow_es2.tex	1324			Texture		View Picture			
+snow_es3.tex	1324			Texture		View Picture			
+snow4.tex	65836			Texture		View Picture			
+snow5.tex	65836			Texture		View Picture			
+snw_mt.tex	16684	Mountains w/snow		Texture	Found all over Northern Continent	View Picture			
+snw_mtd.tex	16684			Texture		View Picture			
+snw_mte.tex	2348	Plain snow texture (transitional)		Texture	Found all over Northern Continent	View Picture			
+snw_mted.tex	2348			Texture		View Picture			
+snw_mts.tex	8492			Texture		View Picture			
+snw_mts2.tex	2348			Texture		View Picture			
+snwfld.tex	4396	Plain Snow Texture		Texture	Found all over Northern Continent	View Picture			
+snwfld_s.tex	2348	Plain Snow Texture (shaded + transistional)		Texture	Found all over Northern Continent	View Picture			
+snwfld2.tex	4396			Texture		View Picture			
+snwfldl.tex	4396	Plain snow texture		Texture	Possibly for the 3d field in Gaia Mt area	View Picture			
+snwgra.tex	4396	Plain Snow and Grass (transistional)		Texture	Found all over Northern Continent	View Picture			
+snwhm01.tex	1324			Texture		View Picture			
+snwhm02.tex	1324			Texture		View Picture			
+snwods.tex	1324			Texture		View Picture			
+snwood.tex	4396			Texture		View Picture			
+snwtrk.tex	2348	Chocobo tracks on snow		Texture	Track found on the Northern Continent	View Picture			
+ssand.tex	65836			Texture		View Picture			
+sse_s1.tex	1324			Texture		View Picture			
+sse_s2.tex	1324			Texture		View Picture			
+sse_s3.tex	1324			Texture		View Picture			
+sse_s4.tex	1324			Texture		View Picture			
+ssee1.tex	1324			Texture		View Picture			
+ssee2.tex	1324			Texture		View Picture			
+ssee3.tex	1324			Texture		View Picture			
+ssee4.tex	1324			Texture		View Picture			
+sst1.tex	1324			Texture		View Picture			
+sst2.tex	1324			Texture		View Picture			
+sst3.tex	1324			Texture		View Picture			
+sst4.tex	1324			Texture		View Picture			
+stown_r.tex	1324	Icicle inn roof		Texture	Icicle Inn roof	View Picture			
+stw_gro.tex	4396	Icicle inn		Texture	Ground underneath Icicle Inn	View Picture			
+subrg2.tex	1324			Texture		View Picture			
+susbrg.tex	4396			Texture		View Picture			
+sw_se.tex	4396	World Map Part: Swamp		Texture		View Picture			
+swall02.tex	65836			Texture		View Picture			
+swclf_l.tex	4396			Texture		View Picture			
+swclf_ld.tex	4396			Texture		View Picture			
+swclf_lg.tex	2348			Texture		View Picture			
+swclf_s.tex	2348			Texture		View Picture			
+swclf_sd.tex	2348			Texture		View Picture			
+swclf_sg.tex	1324			Texture		View Picture			
+swclf_wg.tex	1324			Texture		View Picture			
+swfld_s2.tex	2348			Texture		View Picture			
+swfld_s3.tex	1324			Texture		View Picture			
+swmd_cg.tex	1324			Texture		View Picture			
+swmd_clf.tex	2348			Texture		View Picture			
+swp1.tex	1324			Texture		View Picture			
+swp2.tex	1324			Texture		View Picture			
+swp3.tex	1324			Texture		View Picture			
+swp4.tex	1324			Texture		View Picture			
+trk.tex	4396	Chocobo tracks on green field		Texture	Contains tracks for light and dark grass	View Picture			
+tyo_f.tex	16684	Light green grass		Texture	Found only around Chocobo Farm	View Picture			
+tyosnw.tex	8492			Texture		View Picture			
+uf1.tex	1324			Texture		View Picture			
+uf2.tex	1324			Texture		View Picture			
+uf3.tex	1324			Texture		View Picture			
+uf4.tex	1324			Texture		View Picture			
+utai_gro.tex	4396	Wutai 1		Texture	Ground under Wutai	View Picture			
+utai01.tex	1324	Wutai 2		Texture		View Picture			
+utai02.tex	1324	Wutai 3		Texture		View Picture			
+utaimt.tex	1324	Wutai mountains 1		Texture		View Picture			
+utaimtd.tex	1324	Wutai mountains 2		Texture		View Picture			
+utaimtg.tex	1324	Wutai mountains 3		Texture		View Picture			
+wa1.tex	1324	Beach 1 Light		Texture		View Picture			
+wa2.tex	1324	Beach 2 Light		Texture		View Picture			
+wa3.tex	1324	Beach 3 Light		Texture		View Picture			
+wa4.tex	1324	Beach 4 Light		Texture		View Picture			
+wa5.tex	1324	Beach 5 Light		Texture		View Picture			
+wa6.tex	1324	Beach 6 Light		Texture		View Picture			
+wa7.tex	1324	Beach 7 Light		Texture		View Picture			
+wa8.tex	1324	Beach 8 Light		Texture		View Picture			
+was.tex	16684	Dirt field with green field 1		Texture	Dirt/Gras texture, found all over world	View Picture			
+was_d.tex	2348	Dirt field 1		Texture		View Picture			
+was_g.tex	4396	Dirt field 2		Texture		View Picture			
+was_gs.tex	4396	Dirt field 3		Texture		View Picture			
+was_s.tex	16684	Dirt field with green field 2		Texture		View Picture			
+wasfld.tex	4396	Dirt field 4		Texture	Plain dirt, used all over world	View Picture			
+wdedge.tex	4396	Grass Texture		Texture	Used around some forests	View Picture			
+we_s1.tex	1324	Beach edge 1 Dark		Texture		View Picture			
+we_s2.tex	1324	Beach edge 2 Dark		Texture		View Picture			
+we_s3.tex	1324	Beach edge 3 Dark		Texture		View Picture			
+we_s4.tex	1324	Beach edge 4 Dark		Texture		View Picture			
+we_s5.tex	1324	Beach edge 5 Dark		Texture		View Picture			
+we_s6.tex	1324	Beach edge 6 Dark		Texture		View Picture			
+we_s7.tex	1324	Beach edge 7 Dark		Texture		View Picture			
+we_s8.tex	1324	Beach edge 8 Dark		Texture		View Picture			
+we1.tex	1324	Beach edge 1 Light		Texture		View Picture			
+we2.tex	1324	Beach edge 2 Light		Texture		View Picture			
+we3.tex	1324	Beach edge 3 Light		Texture		View Picture			
+we4.tex	1324	Beach edge 4 Light		Texture		View Picture			
+we5.tex	1324	Beach edge 5 Light		Texture		View Picture			
+we6.tex	1324	Beach edge 6 Light		Texture		View Picture			
+we7.tex	1324	Beach edge 7 Light		Texture		View Picture			
+we8.tex	1324	Beach edge 8 Light		Texture		View Picture			
+wedged.tex	2348	Grass Texture		Texture	Used around some forests	View Picture			
+wm.ta	57344								
+wm_kumo.tex	16684	Clouds		Texture	Clouds found in the sky on worldmap	View Picture			
+wm0.ev	28672								
+wm2.ev	28672								
+wm3.ev	28672								
+wod-e2.tex	1324	Forest edge		Texture	Contains Light and dark textures	View Picture			
+wood.tex	4396	Forest light		Texture	Light forest, account for 90% of forests	View Picture			
+wood_d.tex	4396	Forest dark		Texture	Dark forest, accounts for 10% of forests	View Picture			
+wpcltr.tex	4396	Crater 2		Texture		View Picture			
+wpcltr2.tex	1324	Crater 1		Texture		View Picture			
+wtrk.tex	2348	Chocobo tracks on dirt		Texture		View Picture			
+wzs1.tex	1324	Beach 1 Dark		Texture		View Picture			
+wzs2.tex	1324	Beach 2 Dark		Texture		View Picture			
+wzs3.tex	1324	Beach 3 Dark		Texture		View Picture			
+wzs4.tex	1324	Beach 4 Dark		Texture		View Picture			
+wzs5.tex	1324	Beach 5 Dark		Texture		View Picture			
+wzs6.tex	1324	Beach 6 Dark		Texture		View Picture			
+wzs7.tex	1324	Beach 7 Dark		Texture		View Picture			
+wzs8.tex	1324	Beach 8 Dark		Texture		View Picture			
+wzshr.tex	1324			Texture		View Picture			
+wzshr2.tex	1324			Texture		View Picture			
+wzshrs.tex	1324			Texture		View Picture	

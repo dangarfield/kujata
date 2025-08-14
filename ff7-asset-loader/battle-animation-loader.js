@@ -315,7 +315,7 @@ module.exports = class BattleAnimationLoader {
 
     // Hack for reading animations with missing secondary frame counter (which can't be actually used by FF7)
     if (animation.numFrames2 == animation.blockLength - 5) {
-      console.log('WARN: Ignoring animation missing secondary frame counter')
+      // console.log('WARN: Ignoring animation missing secondary frame counter')
       r.offset = startOffset + 12
       animation.animationLength = r.readUShort()
       animation.key = r.readUByte()

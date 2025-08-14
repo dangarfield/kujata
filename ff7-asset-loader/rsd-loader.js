@@ -8,16 +8,16 @@ module.exports = {
   NTEX_LINE_PREFIX: 'NTEX=',
 
   removeFilenameExtension: function (filenameWithExtension) {
-    let periodPosition = filenameWithExtension.indexOf('.')
+    const periodPosition = filenameWithExtension.indexOf('.')
     return filenameWithExtension.substring(0, periodPosition)
   },
 
   loadRsd: function (inputFieldCharDirectory, rsdBaseFilename) {
-    let fileContents = fs.readFileSync(
+    const fileContents = fs.readFileSync(
       inputFieldCharDirectory + '/' + rsdBaseFilename + '.RSD',
       'utf-8'
     )
-    let lines = fileContents
+    const lines = fileContents
       .split(/\r?\n/g)
       .filter(line => !line.startsWith('#'))
     if (!lines[0].startsWith(this.FIRST_LINE)) {
@@ -35,13 +35,13 @@ module.exports = {
     if (!lines[4].startsWith(this.NTEX_LINE_PREFIX)) {
       throw new Error('Expected: ' + this.NTEX_LINE_PREFIX)
     }
-    let plyFile = this.removeFilenameExtension(
+    const plyFile = this.removeFilenameExtension(
       lines[1].substring(this.PLY_LINE_PREFIX.length)
     )
-    let matFile = this.removeFilenameExtension(
+    const matFile = this.removeFilenameExtension(
       lines[2].substring(this.MAT_LINE_PREFIX.length)
     )
-    let grpFile = this.removeFilenameExtension(
+    const grpFile = this.removeFilenameExtension(
       lines[3].substring(this.GRP_LINE_PREFIX.length)
     )
     if (matFile !== plyFile) {
@@ -54,14 +54,14 @@ module.exports = {
       polygonFilename: plyFile,
       textureBaseFilenames: []
     }
-    let numTextures = parseInt(lines[4].substring(this.NTEX_LINE_PREFIX.length))
+    const numTextures = parseInt(lines[4].substring(this.NTEX_LINE_PREFIX.length))
     for (let i = 0; i < numTextures; i++) {
-      let expectedPrefix = 'TEX[' + i + ']='
+      const expectedPrefix = 'TEX[' + i + ']='
       const line = lines[i + 5]
       if (!line.startsWith(expectedPrefix)) {
         throw new Error('Expected line to start with: ' + expectedPrefix)
       }
-      let nthTextureFilename = this.removeFilenameExtension(
+      const nthTextureFilename = this.removeFilenameExtension(
         line.substring(expectedPrefix.length)
       )
       resource.textureBaseFilenames.push(nthTextureFilename)

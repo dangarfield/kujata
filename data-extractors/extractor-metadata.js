@@ -58,6 +58,7 @@ const copyFiles = (config, progress) => {
     'chapters.json',
     'skeleton-names-battle.json',
     'skeleton-names-field.json',
+    'skeleton-names-world.json',
     'movie-list.json',
     'music-names.json',
     'op-categories.json',

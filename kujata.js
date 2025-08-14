@@ -18,8 +18,10 @@ const {
 const { extractMedias } = require('./data-extractors/extractor-media')
 const { input, confirm } = require('@inquirer/prompts')
 const {
+  extractModels,
   extractFieldBattleModels
-} = require('./data-extractors/extractor-field-battle-models')
+} = require('./data-extractors/extractor-models')
+const { ModelType } = require('./ff7-gltf/ff7-to-gltf.js')
 const {
   extractFieldAnimations
 } = require('./data-extractors/extractor-field-animations')
@@ -37,6 +39,7 @@ PROGRESS:
   - battle-data - DONE
   - field-models - DONE
   - battle-models - DONE
+  - world-models - DONE
   - field-animations - DONE
   - metadata - DONE
   - world - tbc
@@ -394,7 +397,7 @@ const fieldModelCommand = program
     if (models.length === 0 && !options.all) {
       fieldModelCommand.help()
     }
-    await extractFieldBattleModels(config, models, options.all, false)
+    await extractModels(config, models, options.all, ModelType.FIELD)
   })
   .showHelpAfterError()
 
@@ -449,7 +452,7 @@ const battleModelCommand = program
     if (models.length === 0 && !options.all) {
       battleModelCommand.help()
     }
-    await extractFieldBattleModels(config, models, options.all, true)
+    await extractModels(config, models, options.all, ModelType.BATTLE)
   })
   .showHelpAfterError()
 
@@ -478,6 +481,31 @@ program
     const config = await validateConfig()
     await validateUnlgp(config, 'world_us.lgp')
     await extractWorld(config)
+  })
+  .showHelpAfterError()
+
+const worldModelCommand = program
+  .command('world-models')
+  .description(
+    'Extract world models to glTF. ' +
+      chalk.cyan('Includes models and textures')
+  )
+  .argument(
+    '[model ids...]',
+    `add model ids or '--all', eg: \\n${chalk.bgGreen(
+      'kujata world-models wm0'
+    )} \\n${chalk.bgGreen('kujata world-models wm0 wm1')} \\n${chalk.bgGreen(
+      'kujata world-models --all'
+    )}`
+  )
+  .option('-a, --all', 'Process all models')
+  .action(async (models, options) => {
+    const config = await validateConfig()
+    await validateUnlgp(config, 'world_us.lgp')
+    if (models.length === 0 && !options.all) {
+      worldModelCommand.help()
+    }
+    await extractModels(config, models, options.all, ModelType.WORLD)
   })
   .showHelpAfterError()
 

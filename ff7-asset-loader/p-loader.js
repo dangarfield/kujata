@@ -11,18 +11,33 @@ module.exports = {
     if (isBattleModel) {
       buffer = fs.readFileSync(inputBattleBattleDirectory + '/' + pBaseFilename) // e.g. "rtam"
     } else {
-      buffer = fs.readFileSync(
-        inputFieldCharDirectory + '/' + pBaseFilename + '.P'
-      )
+      // Try lowercase .p first, then uppercase .P for compatibility
+      let pFilePath = inputFieldCharDirectory + '/' + pBaseFilename + '.p'
+      if (!fs.existsSync(pFilePath)) {
+        pFilePath = inputFieldCharDirectory + '/' + pBaseFilename + '.P'
+      }
+      buffer = fs.readFileSync(pFilePath)
     }
     let offset = 0
 
     let readInt = function () {
+      if (offset + 4 > buffer.length) {
+        // World model P files may be shorter than field/battle models
+        // Return 0 for missing data
+        offset = buffer.length // Move to end to prevent further reads
+        return 0
+      }
       let i = buffer.readInt32LE(offset)
       offset += 4
       return i
     }
     let readFloat = function () {
+      if (offset + 4 > buffer.length) {
+        // World model P files may be shorter than field/battle models
+        // Return 0.0 for missing bounding box data
+        offset = buffer.length // Move to end to prevent further reads
+        return 0.0
+      }
       let f = buffer.readFloatLE(offset)
       offset += 4
       return f
